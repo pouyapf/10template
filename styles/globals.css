@@ -5,12 +5,87 @@
   --foreground: #171717;
 }
 
+@font-face {
+  font-family: Pelak;
+  font-style: normal;
+  font-weight: 100;
+  src: url('/fonts/fonts/WOFF/Pelak-Thin.woff') format('woff'),
+       url('/fonts/fonts/WOFF2/Pelak-Thin.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: Pelak;
+  font-style: normal;
+  font-weight: 200;
+  src: url('/fonts/fonts/WOFF/Pelak-Light.woff') format('woff'),
+       url('/fonts/fonts/WOFF2/Pelak-Light.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: Pelak;
+  font-style: normal;
+  font-weight: 400;
+  src: url('/fonts/fonts/WOFF/Pelak-Regular.woff') format('woff'),
+       url('/fonts/fonts/WOFF2/Pelak-Regular.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: Pelak;
+  font-style: normal;
+  font-weight: 500;
+  src: url('/fonts/fonts/WOFF/Pelak-Medium.woff') format('woff'),
+       url('/fonts/fonts/WOFF2/Pelak-Medium.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: Pelak;
+  font-style: normal;
+  font-weight: 600;
+  src: url('/fonts/fonts/WOFF/Pelak-SemiBold.woff') format('woff'),
+       url('/fonts/fonts/WOFF2/Pelak-SemiBold.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: Pelak;
+  font-style: normal;
+  font-weight: 700;
+  src: url('/fonts/fonts/WOFF/Pelak-Bold.woff') format('woff'),
+       url('/fonts/fonts/WOFF2/Pelak-Bold.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: Pelak;
+  font-style: normal;
+  font-weight: 800;
+  src: url('/fonts/fonts/WOFF/Pelak-ExtraBold.woff') format('woff'),
+       url('/fonts/fonts/WOFF2/Pelak-ExtraBold.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: Pelak;
+  font-style: normal;
+  font-weight: 900;
+  src: url('/fonts/fonts/WOFF/Pelak-Black.woff') format('woff'),
+       url('/fonts/fonts/WOFF2/Pelak-Black.woff2') format('woff2');
+}
+
+
+
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
+
+@theme {
+  --color-btn1: #D99F35;
+  --color-textsec1: #900000;
+  --color-textbg1: #A97412;
+  --color-icontext: #1C1C1C;
+}
+
+
 
 @media (prefers-color-scheme: dark) {
   :root {
@@ -20,7 +95,65 @@
 }
 
 body {
+
+  direction: rtl;
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: Pelak, Helvetica, sans-serif;
+}
+
+
+
+
+
+.landingbg1{
+  background: linear-gradient(131.36deg, #780E0E 30.52%, #B56A26 115.28%);
+
+}
+
+.leftsidecont1{
+  background: linear-gradient(213.92deg, rgba(255, 255, 255, 0.124) 0%, rgba(255, 255, 255, 0.279) 50%, rgba(255, 255, 255, 0.124) 100%);
+
+}
+
+.cardbg1{
+  background: linear-gradient(94.98deg, rgba(255, 255, 255, 0.2) -4.43%, rgba(255, 255, 255, 0.02) 105.48%);
+  backdrop-filter: blur(16.585960388183594px)
+
+}
+
+
+.offcard1{
+  box-shadow: 2.37px 4.74px 7.11px 0px #F3C44D80;
+
+
+}
+
+
+
+.bgimagecategory1 {
+  position: relative; /* Ensure the pseudo-element is positioned relative to this div */
+  z-index: 1000;
+}
+
+.bgimagecategory1::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1; /* Place the pseudo-element behind the content */
+
+  /* Set the background image */
+  background-image: url('/assets/template1/5.png');
+
+  /* Make the background image repeat */
+  background-repeat: repeat;
+
+  /* Ensure the image covers the entire div */
+  background-size: cover;
+
+  /* Reduce the opacity of the background image */
+  opacity: 0.4; /* Adjust this value to control the opacity */
 }
