@@ -134,9 +134,11 @@ body {
 .bgimagecategory1 {
   position: relative; /* Ensure the pseudo-element is positioned relative to this div */
   z-index: 1000;
+  
 }
 
 .bgimagecategory1::before {
+  
   content: '';
   position: absolute;
   top: 0;
@@ -157,3 +159,33 @@ body {
   /* Reduce the opacity of the background image */
   opacity: 0.4; /* Adjust this value to control the opacity */
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(5px); /* This creates the blur effect */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+

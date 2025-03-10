@@ -1,7 +1,7 @@
 import React from 'react'
 import Image from 'next/image'
 
-function ItemsCard({isliked}) {
+function ItemsCard({isliked,modaltriger}) {
   return (
     <div className=' flex py-6 px-3 justify-between items-center w-[427.68px]  border-[1px]  border-white/50 rounded-[13.03px] cardbg1'>
 <Image className=' w-[118.47px] h-[152.82777404785156] rounded-[11.85px]' src={'/assets/template1/4.png'} width={10000} height={10000} alt='food_img'/>
@@ -64,7 +64,7 @@ function ItemsCard({isliked}) {
     )}
 
 
-<button className='  text-[16.59px] w-[95.96px] font-extrabold   bg-btn1  px-0 rounded-[14.22px] p-2'>جزئیات</button>
+<button onClick={()=>modaltriger(true)} className='  text-[16.59px] w-[95.96px] font-extrabold   bg-btn1  px-0 rounded-[14.22px] p-2'>جزئیات</button>
 
 
 </div>
