@@ -85,6 +85,65 @@
   --color-icontext: #1C1C1C;
 }
 
+.ReactModal__Overlay {
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.ReactModal__Overlay--after-open {
+  opacity: 1;
+}
+
+.ReactModal__Overlay--before-close {
+  opacity: 0;
+}
+
+.ReactModal__Content {
+  transform: scale(0.8);
+  transition: transform 0.3s ease-in-out;
+}
+
+.ReactModal__Content--after-open {
+  transform: scale(1);
+}
+
+.ReactModal__Content--before-close {
+  transform: scale(0.8);
+}
+
+
+
+/* width */
+::-webkit-scrollbar {
+  width: 4px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px grey; 
+  border-radius: 999px;
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #929292; 
+  border-radius: 999px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #D99F35; 
+}
+
+.scrollbar-none::-webkit-scrollbar {
+  display: none;
+}
+
+.scrollbar-none {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
 
 
 @media (prefers-color-scheme: dark) {
@@ -108,6 +167,11 @@ body {
 
 .landingbg1{
   background: linear-gradient(131.36deg, #780E0E 30.52%, #B56A26 115.28%);
+
+}
+.landingbgmob1{
+  background: linear-gradient(174.97deg, #790E0E 3.1%, #D99F35 145.31%);
+
 
 }
 
@@ -168,6 +232,69 @@ body {
 
 
 
+.bgimagecategorymob1 {
+  position: relative; /* Ensure the pseudo-element is positioned relative to this div */
+  z-index: 1000;
+  
+}
+
+.bgimagecategorymob1::before {
+  
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 400%;
+  height: 100%;
+  z-index: -1; /* Place the pseudo-element behind the content */
+
+  /* Set the background image */
+  background-image: url('/assets/template1/5.png');
+
+  /* Make the background image repeat */
+  background-repeat: repeat;
+
+  /* Ensure the image covers the entire div */
+   background-size: contain;
+
+  /* Reduce the opacity of the background image */
+  opacity: 0.4; /* Adjust this value to control the opacity */
+}
+
+
+
+
+
+
+
+
+
+
+
+.aboutustopcont{
+  background: linear-gradient(86.84deg, rgba(255, 255, 255, 0.49) -0.66%, rgba(255, 255, 255, 0.245) 99.37%);
+
+}
+
+
+.leftsidecontmob1{
+
+  background: linear-gradient(208.16deg, rgba(255, 255, 255, 0.3) -2.37%, rgba(255, 255, 255, 0.8) 49.69%, rgba(255, 255, 255, 0.3) 101.75%);
+
+}
+.aboutbg1{
+  background: linear-gradient(131.36deg, #780E0E 30.52%, #B56A26 115.28%);
+
+}
+
+
+
+
+
+
+
+
+
 
 
 
@@ -189,3 +316,20 @@ body {
   z-index: 1000;
 }
 
+
+
+.keen-slider__slide{
+  padding: 0 !important;
+}
+.keen-slider {
+  width: 454px !important;
+  height: 442.4249267578125px !important;
+}
+
+/* For mobile devices */
+@media (max-width: 767px) {
+  .keen-slider {
+    width: 92vw !important;
+    height: auto !important; /* Adjust height as needed or keep it auto */
+  }
+}

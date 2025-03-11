@@ -3,20 +3,20 @@ import Image from 'next/image'
 
 function ItemsCard({isliked,modaltriger}) {
   return (
-    <div className=' flex py-6 px-3 justify-between items-center w-[427.68px]  border-[1px]  border-white/50 rounded-[13.03px] cardbg1'>
+    <div className=' flex py-6  px-2 lg:px-3 justify-between items-center  w-full lg:w-[427.68px]  border-[1px]  border-white/50 rounded-[13.03px] cardbg1'>
 <Image className=' w-[118.47px] h-[152.82777404785156] rounded-[11.85px]' src={'/assets/template1/4.png'} width={10000} height={10000} alt='food_img'/>
 
 <div className=' mr-2   flex flex-col h-[152.82777404785156] justify-between items-start'>
 
-    <span className=' text-[16.59px] font-extrabold'>عنوان آیتم | item name</span>
-<span className=' text-[#F3C44D] font-extrabold text-[14.22px]'>عنوان دسته بندی</span>
-<span className=' text-[13.03px] font-medium'>توضیحات در اینجا نوشته میشود...</span>
+    <span className=' text-[14px] lg:text-[16.59px] font-extrabold'>عنوان آیتم | item name</span>
+<span className=' text-[12px] text-[#F3C44D] font-extrabold lg:text-[14.22px]'>عنوان دسته بندی</span>
+<span className=' text-[13px] :text-[13.03px] font-medium'>توضیحات در اینجا نوشته میشود...</span>
 
 
 <div className='  relative'>
 
 <div className=' relative'>
-    <span className=' font-semibold text-[11.85px]'>200 هزارتومان</span>
+    <span className=' font-semibold text-[10px] lg:text-[11.85px]'>200 هزارتومان</span>
 <div className='   top-0.5  right-1 absolute'>
 
 <svg width="70" height="22" viewBox="0 0 70 22" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -28,7 +28,7 @@ function ItemsCard({isliked,modaltriger}) {
 </div>
 
 
-<span className=' font-black text-[16.59px]'>180 هزارتومان</span>
+<span className=' font-black text-[14px] lg:text-[16.59px]'>180 هزارتومان</span>
 <span className='offcard1 absolute top-0 text-[13.03px] font-black  bg-btn1 text-center min-w-[44.35897816820379] rounded-[33.17px] rotate-[-22.42deg]   py-[4px]'>
 20 %
 
@@ -64,7 +64,7 @@ function ItemsCard({isliked,modaltriger}) {
     )}
 
 
-<button onClick={()=>modaltriger(true)} className='  text-[16.59px] w-[95.96px] font-extrabold   bg-btn1  px-0 rounded-[14.22px] p-2'>جزئیات</button>
+<button onClick={()=>modaltriger(true)} className=' text-[14px] lg:text-[16.59px] w-[95.96px] font-extrabold   bg-btn1  px-0 rounded-[14.22px] p-2'>جزئیات</button>
 
 
 </div>

@@ -1,9 +1,12 @@
+"use client";
 import React from 'react'
 import Image from 'next/image'
 import ItemsCard from '../ItemsCard/ItemsCard'
-import { useState } from 'react';
+import { useState ,useRef ,useEffect } from 'react';
 import ReactModal from 'react-modal';
-
+import Carousel from '@/Components/Carousel/Carousel';
+import CommentCard from '../CommentCard/CommentCard';
+import gsap from "gsap";
 ReactModal.setAppElement('#__next');
 
 function Categoreis1() {
@@ -12,27 +15,108 @@ function Categoreis1() {
 
   const openModal = () => setIsOpen(true);
   const closeModal = () => setIsOpen(false);
+
+  const [showSection, setShowSection] = useState(false);
+
+  const [activeSection, setActiveSection] = useState(1);
+
+
+  const sectionRef = useRef(null);
+
+
+
+  const pageRef = useRef(null);
+  const modalRef = useRef(null);
+  const modalContainerRef = useRef(null);
+  const section1Ref = useRef(null);
+  const section2Ref = useRef(null);
+
+
+  useEffect(() => {
+    gsap.from(pageRef.current, {
+      opacity: 0,
+      y: 50,
+      duration: 2,
+      ease: "power3.out",
+    });
+  }, []);
+
+  useEffect(() => {
+    if (openModal) {
+      gsap.fromTo(
+        modalRef.current,
+        { opacity: 0, scale: 0.5 },
+        { opacity: 1, scale: 1, duration: 10.5, ease: "back.out(1.7)" }
+      );
+    } else {
+      gsap.to(modalRef.current, {
+        opacity: 0,
+        scale: 0.5,
+        duration: 5.4,
+        ease: "power3.in",
+        onComplete: () => setShowModal(false),
+      });
+    }
+  }, [openModal]);
+
+  // Section Toggle Animation
+  const switchSection = (section) => {
+    if (section === activeSection) return;
+
+    const currentRef = activeSection === 1 ? section1Ref : section2Ref;
+    const nextRef = section === 1 ? section1Ref : section2Ref;
+
+    // Animate current section out
+    gsap.to(currentRef.current, {
+      opacity: 0,
+      x: -100,
+      duration: 0.1,
+      onComplete: () => {
+        setActiveSection(section);
+        // Animate next section in
+        gsap.fromTo(
+          nextRef.current,
+          { opacity: 0, x: 100 },
+          { opacity: 1, x: 0, duration: 0.5 }
+        );
+      },
+    });
+  };
+
+
+
   return (
-    <div className='  bgimagecategory1 min-h-screen relative w-full '>
+    <div ref={pageRef} className=' bgimagecategorymob1 lg:bgimagecategory1 min-h-screen relative w-full '>
       
 
 
-        <div className=' px-20 pt-20 mix-blend-overlay flex flex-col justify-center gap-8  bg-[#834223]'>
+        <div className=' lg:px-20 px-0 pb-10 lg:pb-0 items-center pt-8 lg::pt-20 mix-blend-overlay
+         flex flex-col bg-[#935420]
+ justify-center gap-8  lg:bg-[#834223]'>
+
+        <div className=' mt-3 w-[95vw] lg:w-[480px] lg:hidden flex bg-white  justify-between px-4 items-center h-[72px] rounded-[12px]'>
+  <input className='  text-black bg-none border-0 outline-0 bg-transparent font-medium text-[18px]  placeholder:text-[#697C94]' type='text' placeholder='دنبال چه چیزی هستی؟' />
+  <svg width="50" height="50" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect width="50" height="50" rx="10" fill="#D99F35"/>
+<path d="M35.6667 24.3347C35.6667 30.5945 30.5925 35.6693 24.3333 35.6693C18.0741 35.6693 13 30.5945 13 24.3347C13 18.0747 18.0741 13 24.3333 13C30.5925 13 35.6667 18.0747 35.6667 24.3347Z" fill="white" fill-opacity="0.18"/>
+<path d="M37 36.9996L32.3461 32.346M32.3461 32.346C34.3961 30.2952 35.664 27.4624 35.664 24.3333C35.664 18.0741 30.5905 13 24.332 13C18.0735 13 13 18.0741 13 24.3333C13 30.5925 18.0735 35.6667 24.332 35.6667C27.4619 35.6667 30.2953 34.3976 32.3461 32.346Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
 
 
+</div>
 
 
             
-  <div className=' w-full   flex   justify-between  items-center gap-4  z-10'>
+  <div className=' w-full     flex justify-center   lg:justify-between  items-center gap-4  z-10'>
 
-<div className=' flex justify-start items-center gap-3'>
+<div className=' flex lg:justify-start items-center gap-3'>
 
-<Image className=' w-[160px] h-[160px] aspect-square' src={'/assets/template1/2.png'} width={1000} height={1000} alt='Landing_Img'/>
+<Image className=' lg:w-[160px] lg:h-[160px] w-[88px] h-[88px] aspect-square' src={'/assets/template1/2.png'} width={1000} height={1000} alt='Landing_Img'/>
  
  <div className=' flex flex-col items-start justify-center'>
 
- <span className=' text-[32px] cursor-pointer font-black'>نام فروشگاه شما</span>
- <span className=' text-[20px] font-normal'>resturant / cafe</span>
+ <span className=' lg:text-[32px] text-[20px] cursor-pointer font-black'>نام فروشگاه شما</span>
+ <span className=' lg:text-[20px] text-[16px] font-normal'>resturant / cafe</span>
 
  </div>
 
@@ -42,7 +126,7 @@ function Categoreis1() {
  
 
 
-<div className='  w-[480px] bg-white flex justify-between px-4 items-center h-[72px] rounded-[12px]'>
+<div className=' hidden lg:flex  w-[480px] bg-white  justify-between px-4 items-center h-[72px] rounded-[12px]'>
   <input className='  text-black bg-none border-0 outline-0 bg-transparent font-medium text-[18px]  placeholder:text-[#697C94]' type='text' placeholder='دنبال چه چیزی هستی؟' />
   <svg width="50" height="50" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
 <rect width="50" height="50" rx="10" fill="#D99F35"/>
@@ -55,20 +139,20 @@ function Categoreis1() {
   </div>
 
 
-  <div className='  pb-8 border-b-[1px] border-white gap-4  flex justify-between items-center'>
+  <div className=' mt-12  pb-8 border-b-[1px] border-white gap-4  flex justify-between items-center'>
 
-    <ul className=' flex flex-wrap justify-start gap-[32px] items-center'>
-        <li  className=' w-[167px] cursor-pointer transition-all duration-150 ease-in-out hover:scale-95  text-center py-[10px] rounded-[37px] bg-white/30 font-black text-[16px]'>دسته بندی اول </li>
-        <li  className=' w-[167px] cursor-pointer transition-all duration-150 ease-in-out hover:scale-95  text-center py-[10px] rounded-[37px] bg-white/30 font-black text-[16px]'>دسته بندی دوم </li>
-        <li  className=' w-[167px] cursor-pointer transition-all duration-150 ease-in-out hover:scale-95  text-center py-[10px] rounded-[37px] bg-white/30 font-black text-[16px]'>دسته بندی سوم </li>
-        <li  className=' w-[167px] cursor-pointer transition-all duration-150 ease-in-out hover:scale-95  text-center py-[10px] rounded-[37px] bg-white/30 font-black text-[16px]'>دسته بندی چهارم </li>
-        <li  className=' w-[167px] cursor-pointer transition-all duration-150 ease-in-out hover:scale-95  text-center py-[10px] rounded-[37px] bg-white/30 font-black text-[16px]'>دسته بندی پنجم </li>
-        <li  className=' w-[167px] cursor-pointer transition-all duration-150 ease-in-out hover:scale-95  text-center py-[10px] rounded-[37px] bg-white/30 font-black text-[16px]'>دسته بندی ششم </li>
-        <li  className=' w-[167px] cursor-pointer transition-all duration-150 ease-in-out hover:scale-95  text-center py-[10px] rounded-[37px] bg-white/30 font-black text-[16px]'>دسته بندی هفتم </li>
+    <ul className=' flex lg:flex-wrap  flex-nowrap max-w-[70vw] scrollbar-none  overflow-x-auto justify-start gap-1 lg:gap-[32px] items-center'>
+        <li  className=' lg:min-w-[167px] min-w-[100px]  cursor-pointer transition-all duration-150 ease-in-out hover:scale-95  text-center py-[10px] rounded-[37px] bg-white/30 font-black text-[12px] lg:text-[16px]'>دسته بندی اول </li>
+        <li  className=' lg:min-w-[167px]  min-w-[100px]  cursor-pointer transition-all duration-150 ease-in-out hover:scale-95  text-center py-[10px] rounded-[37px] bg-none lg:bg-white/30 font-black text-[12px] lg:text-[16px]'>دسته بندی دوم </li>
+        <li  className=' lg:min-w-[167px] min-w-[100px] cursor-pointer transition-all duration-150 ease-in-out hover:scale-95  text-center py-[10px] rounded-[37px] bg-none lg:bg-white/30 font-black text-[12px] lg:text-[16px]'>دسته بندی سوم </li>
+        <li  className=' lg:min-w-[167px] min-w-[100px] cursor-pointer transition-all duration-150 ease-in-out hover:scale-95  text-center py-[10px] rounded-[37px] bg-none lg:bg-white/30 font-black text-[12px] lg:text-[16px]'>دسته بندی چهارم </li>
+        <li  className=' lg:min-w-[167px] min-w-[100px] cursor-pointer transition-all duration-150 ease-in-out hover:scale-95  text-center py-[10px] rounded-[37px] bg-none lg:bg-white/30 font-black text-[12px] lg:text-[16px]'>دسته بندی پنجم </li>
+        <li  className='lg:min-w-[167px] min-w-[100px] cursor-pointer transition-all duration-150 ease-in-out hover:scale-95  text-center py-[10px] rounded-[37px] bg-none lg:bg-white/30 font-black text-[12px] lg:text-[16px]'>دسته بندی ششم </li>
+        <li  className=' lg:min-w-[167px] min-w-[100px] cursor-pointer transition-all duration-150 ease-in-out hover:scale-95  text-center py-[10px] rounded-[37px] bg-none lg:bg-white/30 font-black text-[12px] lg:text-[16px]'>دسته بندی هفتم </li>
   
     </ul>
 
-    <button className=' cursor-pointer text-center flex  justify-center items-center gap-1  w-[182px]  bg-btn1  px-0 rounded-[10px] p-2'>
+    <button className=' hidden lg:flex cursor-pointer text-center   justify-center items-center gap-1  w-[182px]  bg-btn1  px-0 rounded-[10px] p-2'>
     <svg width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path d="M21.5 11.4V4.6C21.5 3.1 20.86 2.5 19.27 2.5H15.23C13.64 2.5 13 3.1 13 4.6V11.4C13 12.9 13.64 13.5 15.23 13.5H19.27C20.86 13.5 21.5 12.9 21.5 11.4Z" fill="white"/>
 <path d="M11 13.6V20.4C11 21.9 10.36 22.5 8.77 22.5H4.73C3.14 22.5 2.5 21.9 2.5 20.4V13.6C2.5 12.1 3.14 11.5 4.73 11.5H8.77C10.36 11.5 11 12.1 11 13.6Z" fill="white"/>
@@ -82,6 +166,17 @@ function Categoreis1() {
     </button>
 
 
+
+
+    <button className='  flex lg:hidden cursor-pointer text-center   justify-center items-center gap-1  w-[80px]  bg-btn1  px-0 rounded-[10px] py-2'>
+
+<span className=' text-[12px] font-extrabold  '>دسته بندیها</span>
+
+
+
+    </button>
+
+
   </div>
 
 
@@ -89,12 +184,12 @@ function Categoreis1() {
         </div>
 
 
-        <div className=' px-20  pb-20 mix-blend-overlay bg-[#6C2727] flex flex-col justify-start items-center'>
+        <div className='  lg:px-20  pb-20 mix-blend-overlay bg-[#6C2727] flex flex-col justify-start items-center'>
 
-          <span className=' font-extrabold py-8 text-[29px]'>عنوان دسته بندی</span>
+          <span className=' font-extrabold py-8 text-[16px] lg:text-[29px]'>عنوان دسته بندی</span>
 
 
-<div className=' flex   justify-center gap-4 items-center flex-wrap'>
+<div className=' flex   justify-center gap-4 items-center  lg:px-0 px-3 flex-wrap'>
 
   <ItemsCard modaltriger={openModal} isliked={false}/>
   <ItemsCard modaltriger={openModal} isliked={false}/>
@@ -113,31 +208,86 @@ function Categoreis1() {
 
 
 
+<div ref={modalContainerRef}>
 
-
-        <ReactModal
+<ReactModal
+        
         isOpen={isOpen}
         onRequestClose={closeModal}
         contentLabel="Example Modal"
-        className="modal-content"
+        className="modal-content lg:relative absolute bottom-0"
         overlayClassName="modal-overlay"
       >
-  <div className=' relative   rounded-[40px] h-[560px] w-[800px] bg-white'>
-    <div className='  relative z-0 h-[560px] w-[800px] overflow-hidden '>
-    <Image className="w-[501px] top-[49px] absolute h-[501px]  opacity-[25%] left-[-178px]  filter grayscale brightness-90" src={'/assets/template1/7.png'} width={1000} height={1000} alt='modal_Img'/>
+  <div className=' relative   rounded-tr-[40px] rounded-tl-[40px]  lg:rounded-[40px] h-[62vh] lg:h-[560px] w-screen lg:w-[800px]  bg-white'>
+<div onClick={()=>setIsOpen(false)} className='absolute lg:block hidden top-5 z-40 hover:scale-95 transition-all duration-150 ease-in-out left-5'>
+<svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M20.0002 37.9167C10.1168 37.9167 2.0835 29.8834 2.0835 20C2.0835 10.1167 10.1168 2.08337 20.0002 2.08337C29.8835 2.08337 37.9168 10.1167 37.9168 20C37.9168 29.8834 29.8835 37.9167 20.0002 37.9167ZM20.0002 4.58337C11.5002 4.58337 4.5835 11.5 4.5835 20C4.5835 28.5 11.5002 35.4167 20.0002 35.4167C28.5002 35.4167 35.4168 28.5 35.4168 20C35.4168 11.5 28.5002 4.58337 20.0002 4.58337Z" fill="#8F9DAF"/>
+<path d="M15.2829 25.9665C14.9663 25.9665 14.6496 25.8499 14.3996 25.5999C13.9163 25.1165 13.9163 24.3165 14.3996 23.8332L23.8329 14.3999C24.3163 13.9165 25.1163 13.9165 25.5996 14.3999C26.0829 14.8832 26.0829 15.6832 25.5996 16.1665L16.1663 25.5999C15.9329 25.8499 15.5996 25.9665 15.2829 25.9665Z" fill="#8F9DAF"/>
+<path d="M24.7163 25.9665C24.3996 25.9665 24.0829 25.8499 23.8329 25.5999L14.3996 16.1665C13.9163 15.6832 13.9163 14.8832 14.3996 14.3999C14.8829 13.9165 15.6829 13.9165 16.1663 14.3999L25.5996 23.8332C26.0829 24.3165 26.0829 25.1165 25.5996 25.5999C25.3496 25.8499 25.0329 25.9665 24.7163 25.9665Z" fill="#8F9DAF"/>
+</svg>
+
+</div>
+    
+    <div className='  relative z-0 h-[62vh] lg:h-[560px]  w-screen lg:w-[800px] overflow-hidden '>
+    <Image className="lg:w-[501px] lg:h-[501px]  lg:top-[49px] absolute -bottom-[100px] h-[403px]  opacity-[25%] lg:left-[-178px]  filter grayscale brightness-90" src={'/assets/template1/7.png'} width={1000} height={1000} alt='modal_Img'/>
     </div>
 
-    <div className=' z-30   rounded-[40px] flex justify-end items-center px-20  h-[560px] w-[800px] top-0 absolute'>
+    <div className=' z-30   rounded-tl-[40px] rounded-tr-[40px] lg:rounded-[40px] flex justify-end items-center h-[62vh] lg:h-[560px] w-screen lg:w-[800px] top-0 absolute'>
+
+{activeSection===2 ?(    
+    <div ref={section1Ref} className='lg:w-[443px]   w-full ml-0  lg:ml-6 mt-45 lg:mt-18  min-h-[390px]    flex flex-col  justify-start gap-1 items-start'>
+
+<div className=' px-4 lg:px-0 flex justify-between mb-6  w-full items-center'>
+
+<span className='  font-extrabold text-[#2D2D2D] text-[20px]'>نظرات کاربران</span>
 
 
-      <div className='w-[361px] h-[336px]  flex flex-col justify-center gap-1 items-start'>
-        <span className=' bg-[#D99F35] w-[110px]    text-center font-black text-[16.49px] py-2 rounded-[35.51px]'>20 % تخفیف</span>
-<span className=' mt-2 text-[22px] font-extrabold text-black'>عنوان آیتم | item name</span>
-<span className=' mb-2 text-textsec1 text-[16px]  font-extrabold'>عنوان دسته بندی</span>
-<p className='text-[13px] font-medium text-[#515151] mb-2'>توضیحات در اینجا نوشته میشود... توضیحات در اینجا نوشته میشود... توضیحات در اینجا نوشته میشود... توضیحات در اینجا نوشته میشود... توضیحات در اینجا نوشته میشود... توضیحات در اینجا نوشته میشود...توضیحات در اینجا نوشته میشود...</p>
+<div className=' cursor-pointer transition-all duration-150 ease-in-out hover:scale-95 flex justify-center items-center'>
+<span onClick={() => switchSection(1)} className=' border-b-3 border-b-[#D48B03] font-extrabold text-[16px] text-[#D48B03]'>برگشت به عقب</span>
+<svg width="9" height="14" viewBox="0 0 9 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M8 1L2 7L8 13" stroke="#D48B03" stroke-width="2"/>
+</svg>
+
+</div>
 
 
-<div className=' mb-3 flex  w-full justify-start flex-col items-start  relative'>
+</div>
+
+<div className=' scrollbar-none  w-full flex flex-col justify-start items-center h-[410px] max-h-[35vh] lg:max-h-[410px] overflow-y-auto  '>
+
+
+<CommentCard isadmin={false}/>
+<CommentCard isadmin={true}/>
+<CommentCard isadmin={false}/>
+
+
+</div>
+
+
+
+</div>
+):(      <div ref={section2Ref} className='lg:w-[361px]  w-full  m-0 lg:ml-20 h-full pt-40 lg:h-[336px]  justify-start  flex flex-col lg:justify-center lg:gap-1 items-center lg:items-start'>
+       
+       
+        <span className=' bg-[#D99F35] w-[110px]  hidden lg:block   text-center font-black text-[16.49px] py-2 rounded-[35.51px]'>20 % تخفیف</span>
+
+<div className='w-[51px] h-[4px]  bg-btn1/50 rounded-full'></div>
+
+
+<div className=' relative'>
+
+<span className=' mt-2 text-[20px] lg:text-[22px] font-extrabold text-black'>عنوان آیتم | item name</span>
+<span className='offcard1 lg:hidden absolute -top-5 text-[13.03px] font-black  bg-btn1 text-center min-w-[48.35897816820379] rounded-[33.17px] rotate-[-25.15deg]   py-[4px]'>
+20 %
+
+</span>
+</div>
+
+<span className=' mb-2 text-textsec1 text-[14px] lg:text-[16px]  font-extrabold'>عنوان دسته بندی</span>
+<p className='text-[13px] font-medium text-[#515151] text-center lg:text-right mt-8 lg:mt-0 mb-4 lg:mb-2'>توضیحات در اینجا نوشته میشود... توضیحات در اینجا نوشته میشود... توضیحات در اینجا نوشته میشود... توضیحات در اینجا نوشته میشود... توضیحات در اینجا نوشته میشود... توضیحات در اینجا نوشته میشود...توضیحات در اینجا نوشته میشود...</p>
+
+
+<div className=' lg:mb-3 flex   mb-10 w-full justify-start flex-col items-center lg:items-start  relative'>
 
 <div className=' relative'>
     <span className=' font-semibold text text-[#2D2D2D] text-[13px]'>200 هزارتومان</span>
@@ -151,13 +301,13 @@ function Categoreis1() {
 
 </div>
 
-<div className=' flex justify-between  w-full items-center'>
+<div className=' flex lg:justify-between  lg:flex-row flex-col justify-start w-full items-center'>
 
 <span className=' font-black text-textsec1 text-[18px]'>180 هزارتومان</span>
 
 
-<div className=' cursor-pointer transition-all duration-150 ease-in-out hover:scale-95 flex justify-center items-center'>
-  <span className=' border-b-3 border-b-[#D48B03] font-extrabold text-[16px] text-[#D48B03]'>مشاهده نظرات</span>
+<div className=' cursor-pointer mt-6 lg:mt-8 transition-all duration-150 ease-in-out hover:scale-95 flex justify-center items-center'>
+  <span onClick={() => switchSection(2)} className=' border-b-3 border-b-[#D48B03] font-extrabold text-[16px] text-[#D48B03]'>مشاهده نظرات</span>
   <svg width="9" height="14" viewBox="0 0 9 14" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path d="M8 1L2 7L8 13" stroke="#D48B03" stroke-width="2"/>
 </svg>
@@ -213,7 +363,70 @@ function Categoreis1() {
 
 
 
+      </div>)}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+     
+
+
+      <div className='  lg:flex hidden lg:top-1/2 lg:-translate-y-1/2 lg:-right-38 absolute'>
+      <div className=' relative'>
+
+        <div className='  z-50'>
+        <Carousel/>
+
+        </div>
+  
+      <div className='w-[226px] h-[512px] hidden  -z-50 -right-7 absolute  top-1/2 -translate-y-1/2  bg-[#DA4914] rounded-[50px]'></div>
+
+
       </div>
+
+
+
+      </div>
+
+
+
+
+
+     
+      <div className='  -top-60  left-1/2 -translate-x-1/2   absolute lg:hidden flex'>
+      <div className=' relative'>
+
+        <div className='  z-50'>
+        <Carousel/>
+
+        </div>
+  
+      <div className='w-[226px] h-[512px] hidden  -z-50 -right-7 absolute  top-1/2 -translate-y-1/2  bg-[#DA4914] rounded-[50px]'></div>
+
+
+      </div>
+
+
+
+      </div>
+
+
+
+
+
 
 
 
@@ -226,6 +439,11 @@ function Categoreis1() {
 
   </div>
       </ReactModal>
+
+</div>
+
+   
+ 
 
 
 
