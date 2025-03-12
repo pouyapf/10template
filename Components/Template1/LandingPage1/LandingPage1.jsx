@@ -57,7 +57,7 @@ function LandingPage1() {
 
 
   return (
-    <div ref={pageRef} className='landingbg1 landingbgmob1 items-center lg:flex-row flex-col  p-2 pt-5 flex justify-between  min-h-screen w-full relative'>
+    <div ref={pageRef} className='landingbg1 landingbgmob1 items-center lg:flex-row flex-col  p-2 pt-5 flex justify-between  min-h-screen overflow-hidden     w-full relative'>
     
     
     
@@ -127,13 +127,13 @@ function LandingPage1() {
 </div>
 
 <div className=' flex justify-center gap-4 items-center  px-4 lg:px-10 flex-wrap flex-row-reverse'>
-  <div className='card animate-from-left'><CategoryItem  link={'/'} text={'غذاهای دریایی / سالاد'} icon={<SaladIcon  color={"#900000"}/>} /></div>
-  <div className='card animate-from-right'><CategoryItem link={'/'} text={'فست فود'} icon={<FastFoodIcon  color={"#900000"}/>} /></div>
-  <div className='card animate-from-left'><CategoryItem link={'/'} text={'غذای ایرانی'} icon={<PersianFoodIcon  color={"#900000"}/>} /></div>
-  <div className='card animate-from-right'><CategoryItem link={'/'} text={'خوراک و غذاهای فرنگی'} icon={<InternationalFoodIcon  color={"#900000"}/>} /></div>
-  <div className='card animate-from-left'><CategoryItem link={'/'} text={'صبحانه'} icon={<BreakFastIcon  color={"#900000"}/>} /></div>
-  <div className='card animate-from-right'><CategoryItem link={'/'} text={'دسر و پیش‌غذا'} icon={<DessertIcon  color={"#900000"}/>} /></div>
-  <div className='card animate-from-left'><CategoryItem link={'/'} text={'نوشیدنی‌های گرم و سرد'} icon={<DrinksIcon  color={"#900000"}/>} /></div>
+  <div className=' w-[30%] card animate-from-left'><CategoryItem  link={'/'} text={'غذاهای دریایی / سالاد'} icon={<SaladIcon  color={"#900000"}/>} /></div>
+  <div className=' w-[30%]  card animate-from-right'><CategoryItem link={'/'} text={'فست فود'} icon={<FastFoodIcon  color={"#900000"}/>} /></div>
+  <div className='w-[30%]  card animate-from-left'><CategoryItem link={'/'} text={'غذای ایرانی'} icon={<PersianFoodIcon  color={"#900000"}/>} /></div>
+  <div className='w-[30%]   card animate-from-right'><CategoryItem link={'/'} text={'خوراک و غذاهای فرنگی'} icon={<InternationalFoodIcon  color={"#900000"}/>} /></div>
+  <div className=' w-[30%]  card animate-from-left'><CategoryItem link={'/'} text={'صبحانه'} icon={<BreakFastIcon  color={"#900000"}/>} /></div>
+  <div className='w-[30%]  card animate-from-right'><CategoryItem link={'/'} text={'دسر و پیش‌غذا'} icon={<DessertIcon  color={"#900000"}/>} /></div>
+  <div className=' w-[30%]  card animate-from-left'><CategoryItem link={'/'} text={'نوشیدنی‌های گرم و سرد'} icon={<DrinksIcon  color={"#900000"}/>} /></div>
 
 
 
