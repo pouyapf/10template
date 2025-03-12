@@ -64,7 +64,7 @@ function ItemsCard({isliked,modaltriger}) {
     )}
 
 
-<button onClick={()=>modaltriger(true)} className=' text-[14px] lg:text-[16.59px] w-[95.96px] font-extrabold   bg-btn1  px-0 rounded-[14.22px] p-2'>جزئیات</button>
+<button onClick={()=>modaltriger(true)} className=' cursor-pointer transition-all duration-150 ease-in-out hover:scale-95 text-[14px] lg:text-[16.59px] w-[95.96px] font-extrabold   bg-btn1  px-0 rounded-[14.22px] p-2'>جزئیات</button>
 
 
 </div>

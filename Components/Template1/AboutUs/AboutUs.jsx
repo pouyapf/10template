@@ -1,14 +1,27 @@
 import React from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
+import gsap from "gsap";
+import { useRef,useEffect,useState } from 'react'
 
 function AboutUs() {
+
+  const pageRef = useRef(null);
+
+  useEffect(() => {
+    gsap.from(pageRef.current, {
+      opacity: 0,
+      y: 50,
+      duration: 2,
+      ease: "power3.out",
+    });
+  }, []);
   return (
-    <div className='aboutbg1  relative  lg:flex-row flex-col items-start gap-30  py-20 flex  justify-start lg:justify-center overflow-hidden mih-h-screen w-full'>
-<div className=' flex flex-col px-4  items-center justify-start lg:items-start gap-5 w-[445px]'>
+    <div ref={pageRef} className='lg:aboutbg1 aboutbgmob1 relative  lg:flex-row flex-col items-start gap-30  py-20 flex  justify-start lg:justify-center overflow-hidden mih-h-screen w-full'>
+<div className=' relative z-10 flex flex-col px-4  items-center justify-start lg:items-start gap-5 w-[445px]'>
 
 
-<div className='   lg:flex-row flex-col flex justify-start items-center gap-3'>
+<div className='relative z-10    lg:flex-row flex-col flex justify-start items-center gap-3'>
         
         <Image className=' lg:w-[160px] lg:h-[160px] w-[88px] h-[88px] aspect-square' src={'/assets/template1/2.png'} width={1000} height={1000} alt='Landing_Img'/>
          
@@ -24,13 +37,13 @@ function AboutUs() {
         </div>
 
 
-        <p className=' lg:text-[20px] lg:w-fit w-[361px] text-[13px] font-medium'>گرچه به دلیل شهرت کباب شاندیز مشهد شاید بیش از یکصد رستوران نام شاندیز را با خود همراه دارند، اما این رستوران محبوب ترین و تا همین چند وقت پیش معروف ترین شاندیز تهران بوده است. علیرغم وسعت بزرگ رستوران اما به دلیل کیفیت مشتری پسند آن ظهرها علی الخصوص روزهای آخر هفته باید حداقل نیم ساعت زمان را برای صف انتظار شاندیز در نظر داشته باشید.</p>
+        <p className='relative z-10  lg:text-[20px] lg:w-fit w-[361px] text-[13px] font-medium'>گرچه به دلیل شهرت کباب شاندیز مشهد شاید بیش از یکصد رستوران نام شاندیز را با خود همراه دارند، اما این رستوران محبوب ترین و تا همین چند وقت پیش معروف ترین شاندیز تهران بوده است. علیرغم وسعت بزرگ رستوران اما به دلیل کیفیت مشتری پسند آن ظهرها علی الخصوص روزهای آخر هفته باید حداقل نیم ساعت زمان را برای صف انتظار شاندیز در نظر داشته باشید.</p>
         <div className='w-[335px]  lg:hidden block font-extrabold text-[14px] text-center py-3.5 rounded-[12px] bg-btn1'>مشاهده منوی رستوران</div>
     
 
 </div>
 
-<div className=' flex flex-col   lg:w-fit w-full  justify-start items-center gap-5'>
+<div className=' flex flex-col relative z-10    lg:w-fit w-full  justify-start items-center gap-5'>
 
 
 
@@ -333,7 +346,7 @@ function AboutUs() {
 
 
 
-             <Image className=' absolute    z-0 right-0 top-20 lg:top-0' src={'/assets/template1/1.png'} width={1000} height={1000} alt='Landing_Img'/>
+             <Image className=' absolute    z-0 left-1/2 -translate-x-1/2 top-0 lg:top-1/2 translate-y-24  lg:-translate-y-1/2' src={'/assets/template1/1.png'} width={1000} height={1000} alt='Landing_Img'/>
              <Image
        className='absolute z-0 lg:-right-5 flex  lg:hidden left-1/2 -translate-x-1/2 top-90 lg:-bottom-12 '
        src={'/assets/template1/3.png'}
@@ -354,7 +367,7 @@ function AboutUs() {
      
      
      <Image
-       className='absolute z-0 lg:-right-5  hidden lg:flex  lg:-bottom-12 '
+       className='absolute z-0  left-1/2 -translate-x-1/2  hidden lg:flex  lg:-bottom-12 '
        src={'/assets/template1/3.png'}
        width={1000}
        height={1000}

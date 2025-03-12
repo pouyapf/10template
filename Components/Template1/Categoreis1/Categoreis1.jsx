@@ -139,9 +139,9 @@ function Categoreis1() {
   </div>
 
 
-  <div className=' mt-12  pb-8 border-b-[1px] border-white gap-4  flex justify-between items-center'>
+  <div className=' mt-12   pb-8 border-b-[1px] border-white gap-4  flex justify-between items-center'>
 
-    <ul className=' flex lg:flex-wrap  flex-nowrap max-w-[70vw] scrollbar-none  overflow-x-auto justify-start gap-1 lg:gap-[32px] items-center'>
+    <ul className=' flex lg:flex-wrap   flex-nowrap lg:max-w-fit max-w-[70vw] scrollbar-none  overflow-x-auto justify-start gap-1 lg:gap-[32px] items-center'>
         <li  className=' lg:min-w-[167px] min-w-[100px]  cursor-pointer transition-all duration-150 ease-in-out hover:scale-95  text-center py-[10px] rounded-[37px] bg-white/30 font-black text-[12px] lg:text-[16px]'>دسته بندی اول </li>
         <li  className=' lg:min-w-[167px]  min-w-[100px]  cursor-pointer transition-all duration-150 ease-in-out hover:scale-95  text-center py-[10px] rounded-[37px] bg-none lg:bg-white/30 font-black text-[12px] lg:text-[16px]'>دسته بندی دوم </li>
         <li  className=' lg:min-w-[167px] min-w-[100px] cursor-pointer transition-all duration-150 ease-in-out hover:scale-95  text-center py-[10px] rounded-[37px] bg-none lg:bg-white/30 font-black text-[12px] lg:text-[16px]'>دسته بندی سوم </li>
@@ -236,8 +236,17 @@ function Categoreis1() {
 
 {activeSection===2 ?(    
     <div ref={section1Ref} className='lg:w-[443px]   w-full ml-0  lg:ml-6 mt-45 lg:mt-18  min-h-[390px]    flex flex-col  justify-start gap-1 items-start'>
+<div className='  justify-center items-center  w-full lg:hidden flex'>
+
+<div className='w-[51px] h-[4px]  mb-2 bg-btn1/50 rounded-full'></div>
+</div>
+
+
+
 
 <div className=' px-4 lg:px-0 flex justify-between mb-6  w-full items-center'>
+
+  
 
 <span className='  font-extrabold text-[#2D2D2D] text-[20px]'>نظرات کاربران</span>
 
@@ -266,12 +275,12 @@ function Categoreis1() {
 
 
 </div>
-):(      <div ref={section2Ref} className='lg:w-[361px]  w-full  m-0 lg:ml-20 h-full pt-40 lg:h-[336px]  justify-start  flex flex-col lg:justify-center lg:gap-1 items-center lg:items-start'>
+):(      <div ref={section2Ref} className='lg:w-[361px]  w-full  m-0 lg:ml-20 h-full pt-37 lg:h-[336px]  justify-start  flex flex-col lg:justify-center lg:gap-1 items-center lg:items-start'>
        
        
-        <span className=' bg-[#D99F35] w-[110px]  hidden lg:block   text-center font-black text-[16.49px] py-2 rounded-[35.51px]'>20 % تخفیف</span>
+        <span className=' bg-[#D99F35] w-[110px]   hidden lg:block   text-center font-black text-[16.49px] py-2 rounded-[35.51px]'>20 % تخفیف</span>
 
-<div className='w-[51px] h-[4px]  bg-btn1/50 rounded-full'></div>
+<div className='w-[51px] h-[4px]  mb-2 bg-btn1/50 rounded-full'></div>
 
 
 <div className=' relative'>

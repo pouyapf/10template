@@ -5,70 +5,59 @@
   --foreground: #171717;
 }
 
+/* Artin-Bold */
 @font-face {
-  font-family: Pelak;
+  font-family: 'Artin';
   font-style: normal;
-  font-weight: 100;
-  src: url('/fonts/fonts/WOFF/Pelak-Thin.woff') format('woff'),
-       url('/fonts/fonts/WOFF2/Pelak-Thin.woff2') format('woff2');
+  font-weight: 700; /* Bold */
+  src: url('/fonts/fonts/woff/Artin-Bold.woff') format('woff'),
+       url('/fonts/fonts/woff2/Artin-Bold.woff2') format('woff2');
 }
 
+/* ArtinSharp-Black */
 @font-face {
-  font-family: Pelak;
+  font-family: 'ArtinSharp';
   font-style: normal;
-  font-weight: 200;
-  src: url('/fonts/fonts/WOFF/Pelak-Light.woff') format('woff'),
-       url('/fonts/fonts/WOFF2/Pelak-Light.woff2') format('woff2');
+  font-weight: 900; /* Black (Heavy) */
+  src: url('/fonts/fonts/woff/ArtinSharp-Black.woff') format('woff'),
+       url('/fonts/fonts/woff2/ArtinSharp-Black.woff2') format('woff2');
 }
 
+/* ArtinSharp-Bold */
 @font-face {
-  font-family: Pelak;
+  font-family: 'ArtinSharp';
   font-style: normal;
-  font-weight: 400;
-  src: url('/fonts/fonts/WOFF/Pelak-Regular.woff') format('woff'),
-       url('/fonts/fonts/WOFF2/Pelak-Regular.woff2') format('woff2');
+  font-weight: 700; /* Bold */
+  src: url('/fonts/fonts/woff/ArtinSharp-Bold.woff') format('woff'),
+       url('/fonts/fonts/woff2/ArtinSharp-Bold.woff2') format('woff2');
 }
 
+/* ArtinSharp-Light */
 @font-face {
-  font-family: Pelak;
+  font-family: 'ArtinSharp';
   font-style: normal;
-  font-weight: 500;
-  src: url('/fonts/fonts/WOFF/Pelak-Medium.woff') format('woff'),
-       url('/fonts/fonts/WOFF2/Pelak-Medium.woff2') format('woff2');
+  font-weight: 300; /* Light */
+  src: url('/fonts/fonts/woff/ArtinSharp-Light.woff') format('woff'),
+       url('/fonts/fonts/woff2/ArtinSharp-Light.woff2') format('woff2');
 }
 
+/* ArtinSharp-Regular */
 @font-face {
-  font-family: Pelak;
+  font-family: 'ArtinSharp';
   font-style: normal;
-  font-weight: 600;
-  src: url('/fonts/fonts/WOFF/Pelak-SemiBold.woff') format('woff'),
-       url('/fonts/fonts/WOFF2/Pelak-SemiBold.woff2') format('woff2');
+  font-weight: 400; /* Regular */
+  src: url('/fonts/fonts/woff/ArtinSharp-Regular.woff') format('woff'),
+       url('/fonts/fonts/woff2/ArtinSharp-Regular.woff2') format('woff2');
 }
 
+/* ArtinSharp-Thin */
 @font-face {
-  font-family: Pelak;
+  font-family: 'ArtinSharp';
   font-style: normal;
-  font-weight: 700;
-  src: url('/fonts/fonts/WOFF/Pelak-Bold.woff') format('woff'),
-       url('/fonts/fonts/WOFF2/Pelak-Bold.woff2') format('woff2');
+  font-weight: 100; /* Thin */
+  src: url('/fonts/fonts/woff/ArtinSharp-Thin.woff') format('woff'),
+       url('/fonts/fonts/woff2/ArtinSharp-Thin.woff2') format('woff2');
 }
-
-@font-face {
-  font-family: Pelak;
-  font-style: normal;
-  font-weight: 800;
-  src: url('/fonts/fonts/WOFF/Pelak-ExtraBold.woff') format('woff'),
-       url('/fonts/fonts/WOFF2/Pelak-ExtraBold.woff2') format('woff2');
-}
-
-@font-face {
-  font-family: Pelak;
-  font-style: normal;
-  font-weight: 900;
-  src: url('/fonts/fonts/WOFF/Pelak-Black.woff') format('woff'),
-       url('/fonts/fonts/WOFF2/Pelak-Black.woff2') format('woff2');
-}
-
 
 
 @theme inline {
@@ -158,7 +147,7 @@ body {
   direction: rtl;
   background: var(--background);
   color: var(--foreground);
-  font-family: Pelak, Helvetica, sans-serif;
+  font-family: ArtinSharp, Helvetica, sans-serif;
 }
 
 
@@ -282,8 +271,15 @@ body {
   background: linear-gradient(208.16deg, rgba(255, 255, 255, 0.3) -2.37%, rgba(255, 255, 255, 0.8) 49.69%, rgba(255, 255, 255, 0.3) 101.75%);
 
 }
+.aboutbgmob1{
+  background: linear-gradient(131.36deg, #3c0707 30.52%, #5d3813 115.28%);
+
+
+}
+
 .aboutbg1{
-  background: linear-gradient(131.36deg, #780E0E 30.52%, #B56A26 115.28%);
+  background: linear-gradient(131.36deg, #480808 30.52%, #663614 115.28%);
+
 
 }
 

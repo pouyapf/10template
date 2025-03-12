@@ -5,7 +5,7 @@ function CommentCard({isadmin}) {
     const [rating, setRating] = useState(3);
   return (
     
-    <div className={`lg:w-[443px] w-[95vw] relative min-h-[159px] p-3.5    flex flex-col justify-between gap-3   ${isadmin ? 'bg-[#f6e6c8] mr-0 lg:mr-3 mt-2' :  'bg-white mt-5'} rounded-[20px] border-[1px]  border-btn1`}>
+    <div className={`lg:w-[443px] w-[95vw] relative  h-fit p-3.5    flex flex-col justify-between gap-3   ${isadmin ? 'bg-[#f6e6c8] mr-0 lg:mr-3 mt-2' :  'bg-white mt-5'} rounded-[20px] border-[1px]  border-btn1`}>
 
 
 {isadmin ? (<div className=' absolute  w-1  -top-6  h-10 -z-10 bg-[#D99F3580]/50'></div>):(null)}
@@ -80,7 +80,7 @@ function CommentCard({isadmin}) {
 
 </div>
 
-<p className=' text-[14px]  max-h-[80px] overflow-auto font-medium text-[#1E3A5F]'>گرچه به دلیل شهرت کباب شاندیز مشهد شاید بیش از یکصد رستوران نام شاندیز را با خود همراه دارند، اما این رستوران محبوب ترین و تا همین چند وقت پیش معروف ترین شاندیز تهران بوده است. علیرغم  ت کباب شاندیز مشهد شاید بیش از یکصد رستوران نام شاندیز را با خود همراه دارند، اما این رستوران محبوب ترین و تا همین چند وقت پیش معروف ترین شاندیز تهران بوده است. علیوسعت بزرگ رستوران</p>
+<p className=' text-[14px]  min-h-[80px]  font-medium text-[#1E3A5F]'>گرچه به دلیل شهرت کباب شاندیز مشهد شاید بیش از یکصد رستوران نام شاندیز را با خود همراه دارند، اما این رستوران محبوب ترین و تا همین چند وقت پیش معروف ترین شاندیز تهران بوده است. علیرغم  ت کباب شاندیز مشهد شاید بیش از یکصد رستوران نام شاندیز را با خود همراه دارند، اما این رستوران محبوب ترین و تا همین چند وقت پیش معروف ترین شاندیز تهران بوده است. علیوسعت بزرگ رستوران</p>
 
 
 

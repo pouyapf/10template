@@ -8,10 +8,56 @@ import FastFoodIcon from '@/Components/Icons/FastFoodIcon/FastFoodIcon'
 import InternationalFoodIcon from '@/Components/Icons/InternationalFoodIcon/InternationalFoodIcon'
 import PersianFoodIcon from '@/Components/Icons/PersianFoodIcon/PersianFoodIcon'
 import SaladIcon from '@/Components/Icons/SaladIcon/SaladIcon'
+import gsap from "gsap";
+import { useRef,useEffect,useState } from 'react'
 
 function LandingPage1() {
+    const [isOpen, setIsOpen] = useState(false);
+    const pageRef = useRef(null);
+
+    useEffect(() => {
+      gsap.from(pageRef.current, {
+        opacity: 0,
+        y: 50,
+        duration: 2,
+        ease: "power3.out",
+      });
+    }, []);
+
+
+    useEffect(() => {
+      // Select all cards
+      const cards = gsap.utils.toArray(".card");
+  
+      // Loop through each card and apply animations
+      cards.forEach((card, index) => {
+        if (card.classList.contains("animate-from-right")) {
+          // Animate from the right
+          gsap.from(card, {
+            x: 100, // Start from 100px to the right
+            opacity: 0, // Start with opacity 0
+            duration: 1, // Animation duration
+            delay: index * 0.3, // Stagger delay
+            ease: "power2.out", // Easing function
+          });
+        } else if (card.classList.contains("animate-from-left")) {
+          // Animate from the left
+          gsap.from(card, {
+            x: -100, // Start from 100px to the left
+            opacity: 0, // Start with opacity 0
+            duration: 1, // Animation duration
+            delay: index * 0.3, // Stagger delay
+            ease: "power2.out", // Easing function
+          });
+        }
+      });
+    }, []); // Empty dependency array ensures this runs only once after the component mounts
+  
+
+
+
   return (
-    <div className='landingbg1 landingbgmob1 items-center lg:flex-row flex-col  p-2 pt-5 flex justify-between  min-h-screen w-full relative'>
+    <div ref={pageRef} className='landingbg1 landingbgmob1 items-center lg:flex-row flex-col  p-2 pt-5 flex justify-between  min-h-screen w-full relative'>
     
     
     
@@ -81,13 +127,20 @@ function LandingPage1() {
 </div>
 
 <div className=' flex justify-center gap-4 items-center  px-4 lg:px-10 flex-wrap flex-row-reverse'>
-<CategoryItem link={'/'} text={'غذاهای دریایی / سالاد'} icon={<SaladIcon  color={"#900000"}/>} />
-<CategoryItem link={'/'} text={'فست فود'} icon={<FastFoodIcon  color={"#900000"}/>} />
-<CategoryItem link={'/'} text={'غذای ایرانی'} icon={<PersianFoodIcon  color={"#900000"}/>} />
-<CategoryItem link={'/'} text={'خوراک و غذاهای فرنگی'} icon={<InternationalFoodIcon  color={"#900000"}/>} />
-<CategoryItem link={'/'} text={'صبحانه'} icon={<BreakFastIcon  color={"#900000"}/>} />
-<CategoryItem link={'/'} text={'دسر و پیش‌غذا'} icon={<DessertIcon  color={"#900000"}/>} />
-<CategoryItem link={'/'} text={'نوشیدنی‌های گرم و سرد'} icon={<DrinksIcon  color={"#900000"}/>} />
+  <div className='card animate-from-left'><CategoryItem  link={'/'} text={'غذاهای دریایی / سالاد'} icon={<SaladIcon  color={"#900000"}/>} /></div>
+  <div className='card animate-from-right'><CategoryItem link={'/'} text={'فست فود'} icon={<FastFoodIcon  color={"#900000"}/>} /></div>
+  <div className='card animate-from-left'><CategoryItem link={'/'} text={'غذای ایرانی'} icon={<PersianFoodIcon  color={"#900000"}/>} /></div>
+  <div className='card animate-from-right'><CategoryItem link={'/'} text={'خوراک و غذاهای فرنگی'} icon={<InternationalFoodIcon  color={"#900000"}/>} /></div>
+  <div className='card animate-from-left'><CategoryItem link={'/'} text={'صبحانه'} icon={<BreakFastIcon  color={"#900000"}/>} /></div>
+  <div className='card animate-from-right'><CategoryItem link={'/'} text={'دسر و پیش‌غذا'} icon={<DessertIcon  color={"#900000"}/>} /></div>
+  <div className='card animate-from-left'><CategoryItem link={'/'} text={'نوشیدنی‌های گرم و سرد'} icon={<DrinksIcon  color={"#900000"}/>} /></div>
+
+
+
+
+
+
+
 
 </div>
 
