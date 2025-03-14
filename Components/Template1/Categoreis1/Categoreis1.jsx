@@ -348,10 +348,10 @@ console.log(activeSection)
 </div>
 
 <span className=' mb-2 text-textsec1 text-[14px] lg:text-[16px]  font-extrabold'>عنوان دسته بندی</span>
-<p className='text-[13px] font-medium text-[#515151] text-center lg:text-right mt-8 custom-mt lg:mt-0 mb-4  custom-mb lg:mb-2'>توضیحات در اینجا نوشته میشود... توضیحات در اینجا نوشته میشود... توضیحات در اینجا نوشته میشود... توضیحات در اینجا نوشته میشود... توضیحات در اینجا نوشته میشود... توضیحات در اینجا نوشته میشود...توضیحات در اینجا نوشته میشود...</p>
+<p className='text-[13px] font-medium text-[#515151] text-center lg:text-right mt-4 custom-mt lg:mt-0 mb-4  custom-mb lg:mb-2'>توضیحات در اینجا نوشته میشود... توضیحات در اینجا نوشته میشود... توضیحات در اینجا نوشته میشود... توضیحات در اینجا نوشته میشود... توضیحات در اینجا نوشته میشود... توضیحات در اینجا نوشته میشود...توضیحات در اینجا نوشته میشود...</p>
 
 
-<div className=' lg:mb-3 flex    mb-10 custom-mb w-full justify-start flex-col items-center lg:items-start  relative'>
+<div className=' lg:mb-3 flex    mb-6 custom-mb w-full justify-start flex-col items-center lg:items-start  relative'>
 
 <div className=' relative'>
     <span className=' font-semibold text text-[#2D2D2D] text-[13px]'>200 هزارتومان</span>
