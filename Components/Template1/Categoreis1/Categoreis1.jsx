@@ -196,13 +196,13 @@ console.log(activeSection)
   <div className=' mt-12   pb-8 border-b-[1px] border-white gap-4  flex justify-between items-center'>
 
     <ul className=' flex lg:flex-wrap   flex-nowrap lg:max-w-fit max-w-[70vw] scrollbar-none  overflow-x-auto justify-start gap-1 lg:gap-[32px] items-center'>
-        <li  className=' lg:min-w-[167px] min-w-[100px]  cursor-pointer transition-all duration-150 ease-in-out hover:scale-95  text-center py-[10px] rounded-[37px] bg-white/30 font-black text-[12px] lg:text-[16px]'>دسته بندی اول </li>
-        <li  className=' lg:min-w-[167px]  min-w-[100px]  cursor-pointer transition-all duration-150 ease-in-out hover:scale-95  text-center py-[10px] rounded-[37px] bg-none lg:bg-white/30 font-black text-[12px] lg:text-[16px]'>دسته بندی دوم </li>
-        <li  className=' lg:min-w-[167px] min-w-[100px] cursor-pointer transition-all duration-150 ease-in-out hover:scale-95  text-center py-[10px] rounded-[37px] bg-none lg:bg-white/30 font-black text-[12px] lg:text-[16px]'>دسته بندی سوم </li>
-        <li  className=' lg:min-w-[167px] min-w-[100px] cursor-pointer transition-all duration-150 ease-in-out hover:scale-95  text-center py-[10px] rounded-[37px] bg-none lg:bg-white/30 font-black text-[12px] lg:text-[16px]'>دسته بندی چهارم </li>
-        <li  className=' lg:min-w-[167px] min-w-[100px] cursor-pointer transition-all duration-150 ease-in-out hover:scale-95  text-center py-[10px] rounded-[37px] bg-none lg:bg-white/30 font-black text-[12px] lg:text-[16px]'>دسته بندی پنجم </li>
-        <li  className='lg:min-w-[167px] min-w-[100px] cursor-pointer transition-all duration-150 ease-in-out hover:scale-95  text-center py-[10px] rounded-[37px] bg-none lg:bg-white/30 font-black text-[12px] lg:text-[16px]'>دسته بندی ششم </li>
-        <li  className=' lg:min-w-[167px] min-w-[100px] cursor-pointer transition-all duration-150 ease-in-out hover:scale-95  text-center py-[10px] rounded-[37px] bg-none lg:bg-white/30 font-black text-[12px] lg:text-[16px]'>دسته بندی هفتم </li>
+        <li  className=' lg:min-w-[167px] min-w-[100px]  cursor-pointer transition-all duration-150 ease-in-out hover:scale-95  text-center py-[10px] rounded-[37px] bg-white/30 font-black text-[12px] lg:text-[16px]'>غذاهای دریایی / سالاد</li>
+        <li  className=' lg:min-w-[167px]  min-w-[100px]  cursor-pointer transition-all duration-150 ease-in-out hover:scale-95  text-center py-[10px] rounded-[37px] bg-none lg:bg-white/30 font-black text-[12px] lg:text-[16px]'>فست فود</li>
+        <li  className=' lg:min-w-[167px] min-w-[100px] cursor-pointer transition-all duration-150 ease-in-out hover:scale-95  text-center py-[10px] rounded-[37px] bg-none lg:bg-white/30 font-black text-[12px] lg:text-[16px]'>غذای ایرانی</li>
+        <li  className=' lg:min-w-[167px] min-w-[100px] cursor-pointer transition-all duration-150 ease-in-out hover:scale-95  text-center py-[10px] rounded-[37px] bg-none lg:bg-white/30 font-black text-[12px] lg:text-[16px]'>خوراک و غذاهای فرنگی</li>
+        <li  className=' lg:min-w-[167px] min-w-[100px] cursor-pointer transition-all duration-150 ease-in-out hover:scale-95  text-center py-[10px] rounded-[37px] bg-none lg:bg-white/30 font-black text-[12px] lg:text-[16px]'>صبحانه</li>
+        <li  className='lg:min-w-[167px] min-w-[100px] cursor-pointer transition-all duration-150 ease-in-out hover:scale-95  text-center py-[10px] rounded-[37px] bg-none lg:bg-white/30 font-black text-[12px] lg:text-[16px]'>دسر و پیش‌غذا</li>
+        <li  className=' lg:min-w-[167px] min-w-[100px] cursor-pointer transition-all duration-150 ease-in-out hover:scale-95  text-center py-[10px] rounded-[37px] bg-none lg:bg-white/30 font-black text-[12px] lg:text-[16px]'>نوشیدنی‌های گرم و سرد</li>
   
     </ul>
 
@@ -262,17 +262,17 @@ console.log(activeSection)
 
 
 
-<div ref={modalContainerRef}>
+<div className=' overflow-auto' ref={modalContainerRef}>
 
 <ReactModal
         
         isOpen={isOpen}
         onRequestClose={closeModal}
         contentLabel="Example Modal"
-        className="modal-content lg:relative fixed bottom-0"
+        className="modal-content lg:relative  fixed bottom-0"
         overlayClassName="modal-overlay"
       >
-  <div className=' relative   rounded-tr-[40px] rounded-tl-[40px]  lg:rounded-[40px] custom-h h-[62vh] lg:h-[560px] w-screen lg:w-[800px]  bg-white'>
+  <div className=' relative  bg-white   rounded-tr-[40px] rounded-tl-[40px]  lg:rounded-[40px]    h-[560px] w-screen lg:w-[800px]  '>
 <div onClick={()=>setIsOpen(false)} className='absolute  lg:block hidden top-5 z-40 hover:scale-95 transition-all duration-150 ease-in-out left-5'>
 <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path d="M20.0002 37.9167C10.1168 37.9167 2.0835 29.8834 2.0835 20C2.0835 10.1167 10.1168 2.08337 20.0002 2.08337C29.8835 2.08337 37.9168 10.1167 37.9168 20C37.9168 29.8834 29.8835 37.9167 20.0002 37.9167ZM20.0002 4.58337C11.5002 4.58337 4.5835 11.5 4.5835 20C4.5835 28.5 11.5002 35.4167 20.0002 35.4167C28.5002 35.4167 35.4168 28.5 35.4168 20C35.4168 11.5 28.5002 4.58337 20.0002 4.58337Z" fill="#8F9DAF"/>
@@ -282,16 +282,26 @@ console.log(activeSection)
 
 </div>
     
-    <div className='   relative custom-h  z-0 h-[62vh] lg:h-[560px]  w-screen lg:w-[800px] overflow-hidden '>
+    <div className='   relative    z-0  h-[560px]  w-screen  lg:w-[800px] overflow-hidden  '>
 
-    <Image className="lg:w-[501px] lg:h-[501px]  lg:top-[49px] absolute -bottom-[100px] h-[403px]  opacity-[25%] lg:left-[-178px]  filter grayscale brightness-90" src={'/assets/template1/7.png'} width={1000} height={1000} alt='modal_Img'/>
+    <Image className="lg:w-[501px] lg:h-[501px]  lg:top-[49px] absolute -bottom-[100px] h-[403px] 
+     opacity-[25%] lg:left-[-178px]  filter grayscale brightness-90" src={'/assets/template1/7.png'} width={1000} height={1000} alt='modal_Img'/>
     </div>
 
-    <div className=' z-30   rounded-tl-[40px] rounded-tr-[40px] lg:rounded-[40px] flex justify-end items-center custom-h  h-[62vh] lg:h-[560px] w-screen lg:w-[800px] top-0 absolute'>
+    <div className=' z-30       rounded-tl-[40px] rounded-tr-[40px] lg:rounded-[40px] flex justify-end
+     items-center    lg:h-[560px] h-[560px]   w-screen lg:w-[800px]   bottom-0 fixed'>
+
+
+
+
+<div className='  h-full w-full  flex flex-col justify-end  lg:justify-center lg:w-[495px]   '>
+
+
+
 
 {activeSection==='section2' ?(    
-    <div ref={section2Ref}  className='lg:w-[443px]  custom-mt2   w-full ml-0  lg:ml-6 mt-33 lg:mt-18  min-h-[390px]    flex flex-col  justify-start gap-1 items-start'>
-<div className='  justify-center items-center  w-full lg:hidden flex'>
+    <div ref={section2Ref}  className='lg:w-[443px]  hcustom    w-full ml-0 mr-0 lg:mr-5  mt-0  lg:ml-6  h-[26rem]   flex flex-col  justify-start gap-1 items-start'>
+<div className='   justify-center items-center  w-full lg:hidden flex'>
 
 <div className='w-[51px] h-[4px]  mb-2 bg-btn1/50 rounded-full'></div>
 </div>
@@ -317,7 +327,7 @@ console.log(activeSection)
 
 </div>
 
-<div className=' scrollbar-none   w-full lg:w-fit  flex flex-col justify-start items-center h-[410px] max-h-[35vh] lg:max-h-[410px] overflow-y-auto  '>
+<div className=' scrollbar-none  pb-5  w-full lg:w-fit  flex flex-col justify-start items-center h-[430px] max-h-[35vh] lg:max-h-[410px] overflow-y-auto  '>
 
 
 <CommentCard isadmin={false}/>
@@ -330,15 +340,15 @@ console.log(activeSection)
 
 
 </div>
-):activeSection==='section1' ?(      <div ref={section1Ref} className='lg:w-[361px]  w-full  m-0 lg:ml-20 h-full    lg:pt-0  pt-37 custom-padt lg:h-[336px]  justify-start  flex flex-col lg:justify-center lg:gap-1 items-center lg:items-start'>
+):activeSection==='section1' ?( <div ref={section1Ref} className='  gap-3 pb-3  flex flex-col justify-start lg:justify-center scrollbar-none  pt-10 lg:pt-0 overflow-y-scroll hcustom max-h-[28rem]  h-[28rem]  lg:max-h-full  px-2 lg:px-12 lg:h-full  items-center lg:items-start'>
        
        
-        <span className=' bg-[#D99F35] w-[110px]   hidden lg:block   text-center font-black text-[16.49px] py-2 rounded-[35.51px]'>20 % تخفیف</span>
+  <span className=' mb-3 bg-[#D99F35] w-[110px]   hidden lg:block   text-center font-black text-[16.49px] py-1 rounded-[35.51px]'>20 % تخفیف</span>
 
 <div className='w-[51px] h-[4px] lg:hidden block  mb-2 bg-btn1/50 rounded-full'>.</div>
 
 
-<div className=' relative'>
+<div className=' min-h-fit relative'>
 
 <span className=' mt-2 text-[20px] lg:text-[22px] font-extrabold text-black'>عنوان آیتم | item name</span>
 <span className='offcard1 lg:hidden absolute -top-5 text-[13.03px] font-black  bg-btn1 text-center min-w-[48.35897816820379] rounded-[33.17px] rotate-[-25.15deg]   py-[4px]'>
@@ -347,14 +357,15 @@ console.log(activeSection)
 </span>
 </div>
 
-<span className=' mb-2 text-textsec1 text-[14px] lg:text-[16px]  font-extrabold'>عنوان دسته بندی</span>
-<p className='text-[13px] font-medium text-[#515151] text-center lg:text-right mt-4 custom-mt lg:mt-0 mb-4  custom-mb lg:mb-2'>توضیحات در اینجا نوشته میشود... توضیحات در اینجا نوشته میشود... توضیحات در اینجا نوشته میشود... توضیحات در اینجا نوشته میشود... توضیحات در اینجا نوشته میشود... توضیحات در اینجا نوشته میشود...توضیحات در اینجا نوشته میشود...</p>
+<span className=' text-textsec1 text-[14px] lg:text-[16px]  font-extrabold'>عنوان دسته بندی</span>
+<p className='text-[13px] my-4 font-medium text-[#515151] text-center lg:text-right 
+'>توضیحات در اینجا نوشته میشود... توضیحات در اینجا نوشته میشود... توضیحات در اینجا نوشته میشود... توضیحات در اینجا نوشته میشود... توضیحات در اینجا نوشته میشود... توضیحات در اینجا نوشته میشود...توضیحات در اینجا نوشته میشود...</p>
 
 
-<div className=' lg:mb-3 flex    mb-6 custom-mb w-full justify-start flex-col items-center lg:items-start  relative'>
+<div className='  flex       mb-6 custom-mb w-full justify-start flex-col items-center lg:items-start  relative'>
 
 <div className=' relative'>
-    <span className=' font-semibold text text-[#2D2D2D] text-[13px]'>200 هزارتومان</span>
+<span className=' font-semibold text text-[#2D2D2D] text-[13px]'>200 هزارتومان</span>
 <div className='   top-0.5  right-1 absolute'>
 
 <svg width="70" height="22" viewBox="0 0 70 22" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -365,14 +376,14 @@ console.log(activeSection)
 
 </div>
 
-<div className=' flex lg:justify-between  lg:flex-row flex-col justify-start w-full items-center'>
+<div className='   flex-col lg:flex-row gap-7 lg:gap-0 flex justify-between items-center  w-full'>
 
 <span className=' font-black text-textsec1 text-[18px]'>180 هزارتومان</span>
 
 
-<div className=' cursor-pointer mt-6 custom-mt  lg:mt-8 transition-all duration-150 ease-in-out hover:scale-95 flex justify-center items-center'>
-  <span onClick={() => navigateToSection("section2")} className=' border-b-3 border-b-[#D48B03] font-extrabold text-[16px] text-[#D48B03]'>مشاهده نظرات</span>
-  <svg width="9" height="14" viewBox="0 0 9 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+<div className=' cursor-pointer  transition-all duration-150 ease-in-out hover:scale-95 flex justify-center items-center'>
+<span onClick={() => navigateToSection("section2")} className=' border-b-3 border-b-[#D48B03] font-extrabold text-[16px] text-[#D48B03]'>مشاهده نظرات</span>
+<svg width="9" height="14" viewBox="0 0 9 14" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path d="M8 1L2 7L8 13" stroke="#D48B03" stroke-width="2"/>
 </svg>
 
@@ -388,7 +399,7 @@ console.log(activeSection)
 
 </div>
 
-<div className=' flex justify-center gap-3 items-center'>
+<div className=' flex justify-center    gap-3 items-center'>
 
 <button onClick={() => navigateToSection("section3")} className=' cursor-pointer transition-all duration-150 ease-in-out hover:scale-95 flex justify-center w-[178px] py-3 bg-[#F2AEAE] rounded-[11px] gap-2 items-center'>
 <div className=' text-black'><BiCommentAdd size={20} /></div>
@@ -402,9 +413,9 @@ console.log(activeSection)
 </button>
 
 
-  <button className=' cursor-pointer transition-all duration-150 ease-in-out hover:scale-95 flex justify-center w-[178px] py-3 bg-textsec1 rounded-[11px] gap-2 items-center'>
+<button className=' cursor-pointer transition-all duration-150 ease-in-out hover:scale-95 flex justify-center w-[178px] py-3 bg-textsec1 rounded-[11px] gap-2 items-center'>
 
-  <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+<svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path fill-rule="evenodd" clip-rule="evenodd" d="M17.5 8.70367V11.5C17.5 13.9998 17.5 15.2498 16.8634 16.1259C16.6577 16.4089 16.4089 16.6577 16.1259 16.8634C15.2498 17.5 13.9998 17.5 11.5 17.5H8.5C6.00017 17.5 4.75027 17.5 3.87405 16.8634C3.59107 16.6577 3.34221 16.4089 3.13661 16.1259C2.5 15.2498 2.5 13.9998 2.5 11.5V8.70367C2.5 8.35975 2.5 8.1878 2.51268 8.04282C2.65367 6.43132 3.93133 5.15368 5.54282 5.01268C5.6878 5 5.85977 5 6.2037 5H6.38889C6.5423 5 6.66667 4.87563 6.66667 4.72222C6.66667 3.49492 7.66159 2.5 8.88892 2.5H11.1111C12.3384 2.5 13.3333 3.49492 13.3333 4.72222C13.3333 4.87563 13.4577 5 13.6111 5H13.7963C14.1402 5 14.3122 5 14.4572 5.01268C16.0687 5.15368 17.3463 6.43132 17.4873 8.04282C17.5 8.1878 17.5 8.35975 17.5 8.70367ZM10 8.33333C8.61925 8.33333 7.5 9.45258 7.5 10.8333C7.5 12.2141 8.61925 13.3333 10 13.3333C11.3807 13.3333 12.5 12.2141 12.5 10.8333C12.5 9.45258 11.3807 8.33333 10 8.33333Z" fill="white" fill-opacity="0.18"/>
 <path d="M17.5 11.5V8.70367C17.5 8.35975 17.5 8.1878 17.4873 8.04282C17.3463 6.43132 16.0687 5.15368 14.4572 5.01268C14.3122 5 14.1402 5 13.7963 5H13.6111C13.4577 5 13.3333 4.87563 13.3333 4.72222C13.3333 3.49492 12.3384 2.5 11.1111 2.5H8.88892C7.66159 2.5 6.66667 3.49492 6.66667 4.72222C6.66667 4.87563 6.5423 5 6.38889 5H6.2037C5.85977 5 5.6878 5 5.54282 5.01268C3.93133 5.15368 2.65367 6.43132 2.51268 8.04282C2.5 8.1878 2.5 8.35975 2.5 8.70367V11.5C2.5 13.9998 2.5 15.2498 3.13661 16.1259C3.34221 16.4089 3.59107 16.6577 3.87405 16.8634C4.75027 17.5 6.00017 17.5 8.5 17.5H11.5C13.9998 17.5 15.2498 17.5 16.1259 16.8634C16.4089 16.6577 16.6577 16.4089 16.8634 16.1259C17.5 15.2498 17.5 13.9998 17.5 11.5Z" stroke="white" stroke-width="1.25" stroke-linejoin="round"/>
 <path d="M7.5 10.8334C7.5 9.45262 8.61925 8.33337 10 8.33337C11.3807 8.33337 12.5 9.45262 12.5 10.8334C12.5 12.2141 11.3807 13.3334 10 13.3334C8.61925 13.3334 7.5 12.2141 7.5 10.8334Z" stroke="white" stroke-width="1.25" stroke-linejoin="round"/>
@@ -414,8 +425,8 @@ console.log(activeSection)
 
 
 
-  </button>
-  
+</button>
+
 
 
 
@@ -424,7 +435,7 @@ console.log(activeSection)
 
 
 
-      </div>):(<div ref={section3Ref} className='lg:w-[361px] w-full   px-2 lg:px-0  m-0 lg:ml-20 h-fit lg:min-h-[500px]  pt-37   lg:pt-0 custom-padt lg:h-[336px]  justify-start  flex flex-col lg:justify-center lg:gap-1 items-center lg:items-start'>
+</div>  ):(<div ref={section3Ref} className='lg:w-[361px] w-full  lg:mr-9  mr-0   px-2 lg:px-0  m-0 lg:ml-20  lg:min-h-[500px]  hcustom h-[26rem]    lg:h-[336px]  justify-start  flex flex-col lg:justify-center lg:gap-1 items-center lg:items-start'>
         
         
         
@@ -455,7 +466,7 @@ console.log(activeSection)
 
 </div>
 
-<div className='lg:overflow-hidden   max-h-[300px] px-2 overflow-auto pb-2 flex-col w-full justify-start flex items-center gap-2'>
+<div className='lg:overflow-hidden overflow-auto   max-h-[320px] px-2  pb-2 flex-col w-full justify-start flex items-center gap-2'>
 <input type='text' className=' p-3 placeholder:text-[14px] focus:border-black border border-solid   text-black placeholder:text-medgray   border-medgray/60 w-full placeholder:font-medium transition-all duration-150 ease-in-out rounded-[8px]' placeholder='نام' />
 <input 
   type="tel" 
@@ -505,12 +516,28 @@ console.log(activeSection)
 
 
 
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
      
 
 
-      <div className='  lg:flex hidden lg:top-1/2 lg:-translate-y-1/2 lg:-right-38 absolute'>
+<div className='  lg:flex hidden lg:top-1/2 lg:-translate-y-1/2 lg:-right-38 absolute'>
       <div className=' relative'>
 
         <div className='  z-50'>
@@ -532,7 +559,7 @@ console.log(activeSection)
 
 
      
-      <div className='  -top-60 custom-top  left-1/2 -translate-x-1/2   absolute lg:hidden flex'>
+      <div className='    topcustom -top-60  min-w-[353px] min-h-[344px]   left-1/2 -translate-x-1/2   absolute lg:hidden flex'>
       <div className=' relative'>
 
       <div onClick={()=>setIsOpen(false)} className='absolute rounded-full bg-textsec1/80 right-5   shadow-2xl lg:hidden block top-5 z-40 hover:scale-95 transition-all duration-150 ease-in-out '>
