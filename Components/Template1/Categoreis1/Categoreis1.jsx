@@ -300,7 +300,7 @@ console.log(activeSection)
 
 
 {activeSection==='section2' ?(    
-    <div ref={section2Ref}  className='lg:w-[443px]  hcustom    w-full ml-0 mr-0 lg:mr-5  mt-0  lg:ml-6  h-[26rem]   flex flex-col  justify-start gap-1 items-start'>
+    <div ref={section2Ref}  className='lg:w-[443px]  hcustom    w-full ml-0 mr-0 lg:mr-5  mt-0  lg:ml-6  h-[24rem]   flex flex-col  justify-start gap-1 items-start'>
 <div className='   justify-center items-center  w-full lg:hidden flex'>
 
 <div className='w-[51px] h-[4px]  mb-2 bg-btn1/50 rounded-full'></div>
@@ -340,7 +340,7 @@ console.log(activeSection)
 
 
 </div>
-):activeSection==='section1' ?( <div ref={section1Ref} className='  gap-3 pb-3  flex flex-col justify-start lg:justify-center scrollbar-none  pt-10 lg:pt-0 overflow-y-scroll hcustom max-h-[28rem]  h-[28rem]  lg:max-h-full  px-2 lg:px-12 lg:h-full  items-center lg:items-start'>
+):activeSection==='section1' ?( <div ref={section1Ref} className='  gap-1 pb-3  flex flex-col justify-start lg:justify-center scrollbar-none  pt-10 lg:pt-0 overflow-y-scroll hcustom max-h-[26rem]  h-[26rem]  lg:max-h-full  px-2 lg:px-12 lg:h-full  items-center lg:items-start'>
        
        
   <span className=' mb-3 bg-[#D99F35] w-[110px]   hidden lg:block   text-center font-black text-[16.49px] py-1 rounded-[35.51px]'>20 % تخفیف</span>
@@ -435,7 +435,7 @@ console.log(activeSection)
 
 
 
-</div>  ):(<div ref={section3Ref} className='lg:w-[361px] w-full  lg:mr-9  mr-0   px-2 lg:px-0  m-0 lg:ml-20  lg:min-h-[500px]  hcustom h-[26rem]    lg:h-[336px]  justify-start  flex flex-col lg:justify-center lg:gap-1 items-center lg:items-start'>
+</div>  ):(<div ref={section3Ref} className='lg:w-[361px] w-full  lg:mr-9  mr-0   px-2 lg:px-0  m-0 lg:ml-20  lg:min-h-[500px]  hcustom h-[24rem]    lg:h-[336px]  justify-start  flex flex-col lg:justify-center lg:gap-1 items-center lg:items-start'>
         
         
         
@@ -559,7 +559,7 @@ console.log(activeSection)
 
 
      
-      <div className='    topcustom -top-54  min-w-[353px] min-h-[344px]   left-1/2 -translate-x-1/2   absolute lg:hidden flex'>
+      <div className='    topcustom -top-50  min-w-[353px] min-h-[344px]   left-1/2 -translate-x-1/2   absolute lg:hidden flex'>
       <div className=' relative'>
 
       <div onClick={()=>setIsOpen(false)} className='absolute rounded-full bg-textsec1/80 right-5   shadow-2xl lg:hidden block top-5 z-40 hover:scale-95 transition-all duration-150 ease-in-out '>
