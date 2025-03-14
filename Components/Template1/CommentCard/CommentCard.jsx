@@ -1,6 +1,10 @@
 import React from 'react'
 import Rating from "react-rating";
 import { useState } from 'react';
+import { AiTwotoneLike } from "react-icons/ai";
+import { AiTwotoneDislike } from "react-icons/ai";
+import { BiLike } from "react-icons/bi";
+import { BiDislike } from "react-icons/bi";
 function CommentCard({isadmin}) {
     const [rating, setRating] = useState(3);
   return (
@@ -53,7 +57,10 @@ function CommentCard({isadmin}) {
 
         <div>
 
-            {!isadmin &&        <Rating
+            {!isadmin &&   
+            
+            <div className=' flex flex-col justify-start items-start'>
+           <Rating
         initialRating={rating}
         emptySymbol={<span style={{ color: "gray", fontSize: "30px" }}>
 
@@ -67,7 +74,27 @@ function CommentCard({isadmin}) {
         </svg>
         </span>}
         onChange={(value) => setRating(value)}
-      />}
+      />
+
+      <div className=' flex  w-full justify-between gap-1 items-center'>
+<div className=' flex justify-start gap-1 items-center'>     <span className='text-[#697C94] transition-all duration-150 ease-in-out hover:scale-95 hover:text-btn1'><BiLike  size={20} /></span>
+<span className=' text-[12px]  text-[#697C94] font-medium'>3</span></div>
+
+<div className=' flex justify-start gap-1 items-center'>   <span className='text-[#697C94] transition-all duration-150 ease-in-out hover:scale-95 hover:text-btn1'><BiDislike  size={20} /></span>
+<span className=' text-[12px]  text-[#697C94] font-medium'>3</span></div>
+   
+     
+
+
+      </div>
+
+
+
+            </div>
+  
+      
+      
+      }
 
  
         </div>

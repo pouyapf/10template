@@ -72,6 +72,8 @@
   --color-textsec1: #900000;
   --color-textbg1: #A97412;
   --color-icontext: #1C1C1C;
+  --color-medgray: #a3a3a3;
+
 }
 
 .ReactModal__Overlay {
@@ -148,6 +150,70 @@ body {
   background: var(--background);
   color: white;
   font-family: ArtinSharp, Helvetica, sans-serif;
+}
+
+body.modal-open {
+  overflow: hidden;
+}
+
+
+
+@media (max-height: 830px) {
+.customtop{
+  top: -25px;
+}
+.custom-h{
+  height: 85vh;
+}
+.custom-top{
+  top: -80px;
+
+}
+
+.custom-padt{
+  padding-top: 260px;
+}
+
+.custom-mb{
+ margin-bottom: 10px;
+}
+.custom-mt{
+  margin-top: 10px;
+}
+.custom-mt2{
+
+  margin-top: 300px;
+
+}
+}
+
+@media (max-height: 830px) {
+.customtop{
+  top: -15px;
+}
+.custom-h{
+  height: 85vh;
+}
+.custom-top{
+  top: -80px;
+
+}
+
+.custom-padt{
+  padding-top: 260px;
+}
+
+.custom-mb{
+ margin-bottom: 10px;
+}
+.custom-mt{
+  margin-top: 10px;
+}
+.custom-mt2{
+
+  margin-top: 300px;
+
+}
 }
 
 

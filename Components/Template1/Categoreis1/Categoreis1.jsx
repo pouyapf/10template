@@ -7,18 +7,20 @@ import ReactModal from 'react-modal';
 import Carousel from '@/Components/Carousel/Carousel';
 import CommentCard from '../CommentCard/CommentCard';
 import gsap from "gsap";
+import Rating from "react-rating";
+import { BiCommentAdd } from "react-icons/bi";
 ReactModal.setAppElement('#__next');
 
 function Categoreis1() {
-
+    const [rating, setRating] = useState(3);
   const [isOpen, setIsOpen] = useState(false);
 
   const openModal = () => setIsOpen(true);
   const closeModal = () => setIsOpen(false);
-
+  const [activeSection, setActiveSection] = useState("section1");
   const [showSection, setShowSection] = useState(false);
 
-  const [activeSection, setActiveSection] = useState(1);
+
 
 
   const sectionRef = useRef(null);
@@ -28,9 +30,6 @@ function Categoreis1() {
   const pageRef = useRef(null);
   const modalRef = useRef(null);
   const modalContainerRef = useRef(null);
-  const section1Ref = useRef(null);
-  const section2Ref = useRef(null);
-
 
   useEffect(() => {
     gsap.from(pageRef.current, {
@@ -58,32 +57,87 @@ function Categoreis1() {
       });
     }
   }, [openModal]);
+ 
+ 
+ 
 
-  // Section Toggle Animation
-  const switchSection = (section) => {
-    if (section === activeSection) return;
+  const section1Ref = useRef(null);
+  const section2Ref = useRef(null);
+  const section3Ref = useRef(null);
 
-    const currentRef = activeSection === 1 ? section1Ref : section2Ref;
-    const nextRef = section === 1 ? section1Ref : section2Ref;
+  // Function to navigate between sections
+  const navigateToSection = (section) => {
+    let currentSectionRef;
+    let nextSectionRef;
+console.log('sec',section)
+    // Determine the current and next section refs
+    switch (activeSection) {
+      case "section1":
+        currentSectionRef = section1Ref;
+        break;
+      case "section2":
+        currentSectionRef = section2Ref;
+        break;
+      case "section3":
+        currentSectionRef = section3Ref;
+        break;
+      default:
+        break;
+    }
+    
+    switch (section) {
+      case "section1":
+        nextSectionRef = section1Ref;
+        break;
+      case "section2":
+        nextSectionRef = section2Ref;
+        break;
+      case "section3":
+        nextSectionRef = section3Ref;
+        break;
+      default:
+        break;
+    }
+    console.log('next',nextSectionRef)
+    console.log('cur',currentSectionRef.current)
 
-    // Animate current section out
-    gsap.to(currentRef.current, {
+    // Animate out the current section
+    gsap.to(nextSectionRef.current, {
       opacity: 0,
-      x: -100,
-      duration: 0.1,
+      y: -50, // Move up
+      duration: 0.2,
+      ease: "power2.out",
       onComplete: () => {
+        // Change the active section
         setActiveSection(section);
-        // Animate next section in
+        // Animate in the new section
         gsap.fromTo(
-          nextRef.current,
-          { opacity: 0, x: 100 },
-          { opacity: 1, x: 0, duration: 0.5 }
+          currentSectionRef.current,
+          { opacity: 0, y: 50 }, // Start from below
+          { opacity: 1, y: 0, duration: 0.2, ease: "power3.out" } // Animate to center
         );
       },
     });
   };
 
 
+console.log(activeSection)
+
+
+
+
+  useEffect(() => {
+    if (isOpen) {
+      document.body.classList.add('modal-open');
+    } else {
+      document.body.classList.remove('modal-open');
+    }
+
+    // Cleanup function to remove the class when the component unmounts
+    return () => {
+      document.body.classList.remove('modal-open');
+    };
+  }, [isOpen]);
 
   return (
     <div ref={pageRef} className=' bgimagecategorymob1 lg:bgimagecategory1 min-h-screen relative w-full '>
@@ -215,11 +269,11 @@ function Categoreis1() {
         isOpen={isOpen}
         onRequestClose={closeModal}
         contentLabel="Example Modal"
-        className="modal-content lg:relative absolute bottom-0"
+        className="modal-content lg:relative fixed bottom-0"
         overlayClassName="modal-overlay"
       >
-  <div className=' relative   rounded-tr-[40px] rounded-tl-[40px]  lg:rounded-[40px] h-[62vh] lg:h-[560px] w-screen lg:w-[800px]  bg-white'>
-<div onClick={()=>setIsOpen(false)} className='absolute lg:block hidden top-5 z-40 hover:scale-95 transition-all duration-150 ease-in-out left-5'>
+  <div className=' relative   rounded-tr-[40px] rounded-tl-[40px]  lg:rounded-[40px] custom-h h-[62vh] lg:h-[560px] w-screen lg:w-[800px]  bg-white'>
+<div onClick={()=>setIsOpen(false)} className='absolute  lg:block hidden top-5 z-40 hover:scale-95 transition-all duration-150 ease-in-out left-5'>
 <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path d="M20.0002 37.9167C10.1168 37.9167 2.0835 29.8834 2.0835 20C2.0835 10.1167 10.1168 2.08337 20.0002 2.08337C29.8835 2.08337 37.9168 10.1167 37.9168 20C37.9168 29.8834 29.8835 37.9167 20.0002 37.9167ZM20.0002 4.58337C11.5002 4.58337 4.5835 11.5 4.5835 20C4.5835 28.5 11.5002 35.4167 20.0002 35.4167C28.5002 35.4167 35.4168 28.5 35.4168 20C35.4168 11.5 28.5002 4.58337 20.0002 4.58337Z" fill="#8F9DAF"/>
 <path d="M15.2829 25.9665C14.9663 25.9665 14.6496 25.8499 14.3996 25.5999C13.9163 25.1165 13.9163 24.3165 14.3996 23.8332L23.8329 14.3999C24.3163 13.9165 25.1163 13.9165 25.5996 14.3999C26.0829 14.8832 26.0829 15.6832 25.5996 16.1665L16.1663 25.5999C15.9329 25.8499 15.5996 25.9665 15.2829 25.9665Z" fill="#8F9DAF"/>
@@ -228,14 +282,15 @@ function Categoreis1() {
 
 </div>
     
-    <div className='  relative z-0 h-[62vh] lg:h-[560px]  w-screen lg:w-[800px] overflow-hidden '>
+    <div className='   relative custom-h  z-0 h-[62vh] lg:h-[560px]  w-screen lg:w-[800px] overflow-hidden '>
+
     <Image className="lg:w-[501px] lg:h-[501px]  lg:top-[49px] absolute -bottom-[100px] h-[403px]  opacity-[25%] lg:left-[-178px]  filter grayscale brightness-90" src={'/assets/template1/7.png'} width={1000} height={1000} alt='modal_Img'/>
     </div>
 
-    <div className=' z-30   rounded-tl-[40px] rounded-tr-[40px] lg:rounded-[40px] flex justify-end items-center h-[62vh] lg:h-[560px] w-screen lg:w-[800px] top-0 absolute'>
+    <div className=' z-30   rounded-tl-[40px] rounded-tr-[40px] lg:rounded-[40px] flex justify-end items-center custom-h  h-[62vh] lg:h-[560px] w-screen lg:w-[800px] top-0 absolute'>
 
-{activeSection===2 ?(    
-    <div ref={section1Ref} className='lg:w-[443px]   w-full ml-0  lg:ml-6 mt-45 lg:mt-18  min-h-[390px]    flex flex-col  justify-start gap-1 items-start'>
+{activeSection==='section2' ?(    
+    <div ref={section2Ref}  className='lg:w-[443px]  custom-mt2   w-full ml-0  lg:ml-6 mt-33 lg:mt-18  min-h-[390px]    flex flex-col  justify-start gap-1 items-start'>
 <div className='  justify-center items-center  w-full lg:hidden flex'>
 
 <div className='w-[51px] h-[4px]  mb-2 bg-btn1/50 rounded-full'></div>
@@ -252,7 +307,7 @@ function Categoreis1() {
 
 
 <div className=' cursor-pointer transition-all duration-150 ease-in-out hover:scale-95 flex justify-center items-center'>
-<span onClick={() => switchSection(1)} className=' border-b-3 border-b-[#D48B03] font-extrabold text-[16px] text-[#D48B03]'>برگشت به عقب</span>
+<span onClick={() => navigateToSection("section1")} className=' border-b-3 border-b-[#D48B03] font-extrabold text-[16px] text-[#D48B03]'>برگشت به عقب</span>
 <svg width="9" height="14" viewBox="0 0 9 14" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path d="M8 1L2 7L8 13" stroke="#D48B03" stroke-width="2"/>
 </svg>
@@ -262,7 +317,7 @@ function Categoreis1() {
 
 </div>
 
-<div className=' scrollbar-none  w-full flex flex-col justify-start items-center h-[410px] max-h-[35vh] lg:max-h-[410px] overflow-y-auto  '>
+<div className=' scrollbar-none   w-full lg:w-fit  flex flex-col justify-start items-center h-[410px] max-h-[35vh] lg:max-h-[410px] overflow-y-auto  '>
 
 
 <CommentCard isadmin={false}/>
@@ -275,12 +330,12 @@ function Categoreis1() {
 
 
 </div>
-):(      <div ref={section2Ref} className='lg:w-[361px]  w-full  m-0 lg:ml-20 h-full pt-37 lg:h-[336px]  justify-start  flex flex-col lg:justify-center lg:gap-1 items-center lg:items-start'>
+):activeSection==='section1' ?(      <div ref={section1Ref} className='lg:w-[361px]  w-full  m-0 lg:ml-20 h-full    lg:pt-0  pt-37 custom-padt lg:h-[336px]  justify-start  flex flex-col lg:justify-center lg:gap-1 items-center lg:items-start'>
        
        
         <span className=' bg-[#D99F35] w-[110px]   hidden lg:block   text-center font-black text-[16.49px] py-2 rounded-[35.51px]'>20 % تخفیف</span>
 
-<div className='w-[51px] h-[4px]  mb-2 bg-btn1/50 rounded-full'></div>
+<div className='w-[51px] h-[4px] lg:hidden block  mb-2 bg-btn1/50 rounded-full'>.</div>
 
 
 <div className=' relative'>
@@ -293,10 +348,10 @@ function Categoreis1() {
 </div>
 
 <span className=' mb-2 text-textsec1 text-[14px] lg:text-[16px]  font-extrabold'>عنوان دسته بندی</span>
-<p className='text-[13px] font-medium text-[#515151] text-center lg:text-right mt-8 lg:mt-0 mb-4 lg:mb-2'>توضیحات در اینجا نوشته میشود... توضیحات در اینجا نوشته میشود... توضیحات در اینجا نوشته میشود... توضیحات در اینجا نوشته میشود... توضیحات در اینجا نوشته میشود... توضیحات در اینجا نوشته میشود...توضیحات در اینجا نوشته میشود...</p>
+<p className='text-[13px] font-medium text-[#515151] text-center lg:text-right mt-8 custom-mt lg:mt-0 mb-4  custom-mb lg:mb-2'>توضیحات در اینجا نوشته میشود... توضیحات در اینجا نوشته میشود... توضیحات در اینجا نوشته میشود... توضیحات در اینجا نوشته میشود... توضیحات در اینجا نوشته میشود... توضیحات در اینجا نوشته میشود...توضیحات در اینجا نوشته میشود...</p>
 
 
-<div className=' lg:mb-3 flex   mb-10 w-full justify-start flex-col items-center lg:items-start  relative'>
+<div className=' lg:mb-3 flex    mb-10 custom-mb w-full justify-start flex-col items-center lg:items-start  relative'>
 
 <div className=' relative'>
     <span className=' font-semibold text text-[#2D2D2D] text-[13px]'>200 هزارتومان</span>
@@ -315,8 +370,8 @@ function Categoreis1() {
 <span className=' font-black text-textsec1 text-[18px]'>180 هزارتومان</span>
 
 
-<div className=' cursor-pointer mt-6 lg:mt-8 transition-all duration-150 ease-in-out hover:scale-95 flex justify-center items-center'>
-  <span onClick={() => switchSection(2)} className=' border-b-3 border-b-[#D48B03] font-extrabold text-[16px] text-[#D48B03]'>مشاهده نظرات</span>
+<div className=' cursor-pointer mt-6 custom-mt  lg:mt-8 transition-all duration-150 ease-in-out hover:scale-95 flex justify-center items-center'>
+  <span onClick={() => navigateToSection("section2")} className=' border-b-3 border-b-[#D48B03] font-extrabold text-[16px] text-[#D48B03]'>مشاهده نظرات</span>
   <svg width="9" height="14" viewBox="0 0 9 14" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path d="M8 1L2 7L8 13" stroke="#D48B03" stroke-width="2"/>
 </svg>
@@ -335,15 +390,12 @@ function Categoreis1() {
 
 <div className=' flex justify-center gap-3 items-center'>
 
-<button className=' cursor-pointer transition-all duration-150 ease-in-out hover:scale-95 flex justify-center w-[178px] py-3 bg-[#F2AEAE] rounded-[11px] gap-2 items-center'>
-
-<svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M17.4117 7.87082C16.5395 12.8961 9.99575 17.0833 9.99575 17.0833C9.99575 17.0833 3.40386 12.896 2.57985 7.87109C1.75585 2.84617 7.52379 1.17099 9.99575 5.06621C12.4678 1.17092 18.2839 2.84548 17.4117 7.87082Z" stroke="#1F1F1F" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"/>
-<path d="M17.4117 7.87082C16.5395 12.8961 9.99575 17.0833 9.99575 17.0833C9.99575 17.0833 3.40386 12.896 2.57985 7.87109C1.75585 2.84617 7.52379 1.17099 9.99575 5.06621C12.4678 1.17092 18.2839 2.84548 17.4117 7.87082Z" fill="#1F1F1F" fill-opacity="0.18"/>
-</svg>
+<button onClick={() => navigateToSection("section3")} className=' cursor-pointer transition-all duration-150 ease-in-out hover:scale-95 flex justify-center w-[178px] py-3 bg-[#F2AEAE] rounded-[11px] gap-2 items-center'>
+<div className=' text-black'><BiCommentAdd size={20} /></div>
 
 
-<span className='text-[13px] text-black font-extrabold'>افزودن به علاقه‌مندی‌ها</span>
+
+<span className='text-[13px] text-black font-extrabold'>افزودن به نظر</span>
 
 
 
@@ -372,7 +424,72 @@ function Categoreis1() {
 
 
 
-      </div>)}
+      </div>):(<div ref={section3Ref} className='lg:w-[361px] w-full   px-2 lg:px-0  m-0 lg:ml-20 h-fit lg:min-h-[500px]  pt-37   lg:pt-0 custom-padt lg:h-[336px]  justify-start  flex flex-col lg:justify-center lg:gap-1 items-center lg:items-start'>
+        
+        
+        
+        
+        <div className='  justify-center items-center  w-full lg:hidden flex'>
+
+<div className='w-[51px] h-[4px]  mb-2 bg-btn1/50 rounded-full'></div>
+</div>
+
+
+
+
+<div className=' px-4 lg:px-0 flex justify-between mb-6  w-full items-center'>
+
+  
+
+<span className='  font-extrabold text-[#2D2D2D] text-[20px]'>ثبت نظر</span>
+
+
+<div className=' cursor-pointer transition-all duration-150 ease-in-out hover:scale-95 flex justify-center items-center'>
+<span onClick={() => navigateToSection("section1")} className=' border-b-3 border-b-[#D48B03] font-extrabold text-[16px] text-[#D48B03]'>برگشت به عقب</span>
+<svg width="9" height="14" viewBox="0 0 9 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M8 1L2 7L8 13" stroke="#D48B03" stroke-width="2"/>
+</svg>
+
+</div>
+
+
+</div>
+
+<div className='lg:overflow-hidden  px-2 overflow-auto pb-2 flex-col w-full justify-start flex items-center gap-3'>
+<input type='text' className=' p-3 placeholder:text-[14px] focus:border-black border border-solid   text-black placeholder:text-medgray   border-medgray/60 w-full placeholder:font-medium transition-all duration-150 ease-in-out rounded-[8px]' placeholder='نام' />
+<input 
+  type="tel" 
+  className="p-3 text-right placeholder:text-[14px] focus:border-black border border-solid text-black placeholder:text-medgray border-medgray/60 w-full placeholder:font-medium transition-all duration-150 ease-in-out rounded-[8px]" 
+  placeholder="شماره تلفن" 
+/>
+         <Rating
+        initialRating={rating}
+        emptySymbol={<span style={{ color: "gray", fontSize: "30px" }}>
+
+<svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M7.36051 1.72614C8.03109 0.313458 9.96859 0.313455 10.6392 1.72613L11.7981 4.16761C12.0644 4.72858 12.5791 5.11741 13.1745 5.20736L15.7659 5.59887C17.2654 5.8254 17.8641 7.74124 16.7791 8.84086L14.9039 10.7413C14.4731 11.1779 14.2765 11.8071 14.3782 12.4236L14.8208 15.1071C15.077 16.6598 13.5095 17.8438 12.1684 17.1107L9.85053 15.8438C9.31796 15.5527 8.68172 15.5527 8.14915 15.8438L5.83131 17.1107C4.49016 17.8438 2.92269 16.6598 3.17883 15.1071L3.62149 12.4236C3.72321 11.8071 3.5266 11.1779 3.09574 10.7413L1.22057 8.84086C0.135559 7.74125 0.734277 5.8254 2.23372 5.59887L4.82515 5.20736C5.42058 5.11741 5.93531 4.72858 6.20159 4.16761L7.36051 1.72614Z" fill="#B4BDCA"/>
+</svg>
+
+        </span>}
+        fullSymbol={<span style={{ color: "gold", fontSize: "30px" }}><svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M8.36051 2.72614C9.03109 1.31346 10.9686 1.31346 11.6392 2.72613L12.7981 5.16761C13.0644 5.72858 13.5791 6.11741 14.1745 6.20736L16.7659 6.59887C18.2654 6.8254 18.8641 8.74124 17.7791 9.84086L15.9039 11.7413C15.4731 12.1779 15.2765 12.8071 15.3782 13.4236L15.8208 16.1071C16.077 17.6598 14.5095 18.8438 13.1684 18.1107L10.8505 16.8438C10.318 16.5527 9.68172 16.5527 9.14915 16.8438L6.83131 18.1107C5.49016 18.8438 3.92269 17.6598 4.17883 16.1071L4.62149 13.4236C4.72321 12.8071 4.5266 12.1779 4.09574 11.7413L2.22057 9.84086C1.13556 8.74125 1.73428 6.8254 3.23372 6.59887L5.82515 6.20736C6.42058 6.11741 6.93531 5.72858 7.20159 5.16761L8.36051 2.72614Z" fill="#FFB121"/>
+        </svg>
+        </span>}
+        onChange={(value) => setRating(value)}
+      />
+<textarea type='text' className=' resize-none min-h-[100px]  max-h-h-[202px] overflow-auto  p-3 placeholder:text-[14px] focus:border-black border border-solid   text-black placeholder:text-medgray   border-medgray/60 w-full placeholder:font-medium transition-all duration-150 ease-in-out rounded-[8px]' placeholder='پیام شما' />
+
+
+<button  className='  py-2 px-4 bg-btn1   rounded'>ثبت نظر</button>
+</div>
+
+
+
+
+
+
+
+</div>)}
 
 
 
@@ -415,8 +532,17 @@ function Categoreis1() {
 
 
      
-      <div className='  -top-60  left-1/2 -translate-x-1/2   absolute lg:hidden flex'>
+      <div className='  -top-60 custom-top  left-1/2 -translate-x-1/2   absolute lg:hidden flex'>
       <div className=' relative'>
+
+      <div onClick={()=>setIsOpen(false)} className='absolute rounded-full bg-textsec1/80 right-5   shadow-2xl lg:hidden block top-5 z-40 hover:scale-95 transition-all duration-150 ease-in-out '>
+<svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M20.0002 37.9167C10.1168 37.9167 2.0835 29.8834 2.0835 20C2.0835 10.1167 10.1168 2.08337 20.0002 2.08337C29.8835 2.08337 37.9168 10.1167 37.9168 20C37.9168 29.8834 29.8835 37.9167 20.0002 37.9167ZM20.0002 4.58337C11.5002 4.58337 4.5835 11.5 4.5835 20C4.5835 28.5 11.5002 35.4167 20.0002 35.4167C28.5002 35.4167 35.4168 28.5 35.4168 20C35.4168 11.5 28.5002 4.58337 20.0002 4.58337Z" fill="#8F9DAF"/>
+<path d="M15.2829 25.9665C14.9663 25.9665 14.6496 25.8499 14.3996 25.5999C13.9163 25.1165 13.9163 24.3165 14.3996 23.8332L23.8329 14.3999C24.3163 13.9165 25.1163 13.9165 25.5996 14.3999C26.0829 14.8832 26.0829 15.6832 25.5996 16.1665L16.1663 25.5999C15.9329 25.8499 15.5996 25.9665 15.2829 25.9665Z" fill="#8F9DAF"/>
+<path d="M24.7163 25.9665C24.3996 25.9665 24.0829 25.8499 23.8329 25.5999L14.3996 16.1665C13.9163 15.6832 13.9163 14.8832 14.3996 14.3999C14.8829 13.9165 15.6829 13.9165 16.1663 14.3999L25.5996 23.8332C26.0829 24.3165 26.0829 25.1165 25.5996 25.5999C25.3496 25.8499 25.0329 25.9665 24.7163 25.9665Z" fill="#8F9DAF"/>
+</svg>
+
+</div>
 
         <div className='  z-50'>
         <Carousel/>

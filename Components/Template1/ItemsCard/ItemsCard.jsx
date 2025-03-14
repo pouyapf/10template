@@ -29,7 +29,7 @@ function ItemsCard({isliked,modaltriger}) {
 
 
 <span className=' font-black text-[14px] lg:text-[16.59px]'>180 هزارتومان</span>
-<span className='offcard1 absolute top-0 text-[13.03px] font-black  bg-btn1 text-center min-w-[44.35897816820379] rounded-[33.17px] rotate-[-22.42deg]   py-[4px]'>
+<span className='offcard1 absolute   customtop top-0 text-[13.03px] font-black  bg-btn1 text-center min-w-[44.35897816820379] rounded-[33.17px] rotate-[-22.42deg]   py-[4px]'>
 20 %
 
 </span>
