@@ -455,7 +455,7 @@ console.log(activeSection)
 
 </div>
 
-<div className='lg:overflow-hidden  px-2 overflow-auto pb-2 flex-col w-full justify-start flex items-center gap-3'>
+<div className='lg:overflow-hidden   max-h-[300px] px-2 overflow-auto pb-2 flex-col w-full justify-start flex items-center gap-2'>
 <input type='text' className=' p-3 placeholder:text-[14px] focus:border-black border border-solid   text-black placeholder:text-medgray   border-medgray/60 w-full placeholder:font-medium transition-all duration-150 ease-in-out rounded-[8px]' placeholder='نام' />
 <input 
   type="tel" 
