@@ -74,6 +74,15 @@
   --color-icontext: #1C1C1C;
   --color-medgray: #a3a3a3;
 
+
+  /*theme2*/
+
+  --color-btn2:#da4914;
+  --color-textsec2: #900000;
+  --color-textbg2: #da4914;
+  --color-icontext: #1C1C1C;
+  --color-medgray: #a3a3a3;
+
 }
 
 .ReactModal__Overlay {
@@ -292,6 +301,153 @@ body.modal-open {
 }
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+/*theme2 */
+
+
+
+
+
+
+.landingbg1{
+  background: linear-gradient(131.36deg, #780E0E 30.52%, #B56A26 115.28%);
+
+}
+.landingbgmob1{
+  background: linear-gradient(174.97deg, #790E0E 3.1%, #D99F35 145.31%);
+
+
+}
+
+.leftsidecont1{
+  background: linear-gradient(213.92deg, rgba(255, 255, 255, 0.124) 0%, rgba(255, 255, 255, 0.279) 50%, rgba(255, 255, 255, 0.124) 100%);
+
+}
+
+.cardbg1{
+  background: linear-gradient(94.98deg, rgba(255, 255, 255, 0.2) -4.43%, rgba(255, 255, 255, 0.02) 105.48%);
+  backdrop-filter: blur(16.585960388183594px)
+
+}
+
+
+.offcard1{
+  box-shadow: 2.37px 4.74px 7.11px 0px #F3C44D80;
+
+
+}
+
+
+
+.bgimagecategory1 {
+  position: relative; /* Ensure the pseudo-element is positioned relative to this div */
+  z-index: 1000;
+  
+}
+
+.bgimagecategory1::before {
+  
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1; /* Place the pseudo-element behind the content */
+
+  /* Set the background image */
+  background-image: url('/assets/template1/5.png');
+
+  /* Make the background image repeat */
+  background-repeat: repeat;
+
+  /* Ensure the image covers the entire div */
+  background-size: cover;
+
+  /* Reduce the opacity of the background image */
+  opacity: 0.4; /* Adjust this value to control the opacity */
+}
+
+
+
+
+
+
+
+
+
+.bgimagecategorymob1 {
+  position: relative; /* Ensure the pseudo-element is positioned relative to this div */
+  z-index: 1000;
+  
+}
+
+.bgimagecategorymob1::before {
+  
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 400%;
+  height: 100%;
+  z-index: -1; /* Place the pseudo-element behind the content */
+
+  /* Set the background image */
+  background-image: url('/assets/template1/5.png');
+
+  /* Make the background image repeat */
+  background-repeat: repeat;
+
+  /* Ensure the image covers the entire div */
+   background-size: contain;
+
+  /* Reduce the opacity of the background image */
+  opacity: 0.4; /* Adjust this value to control the opacity */
+}
+
+
+
+
+
+
+
+
+
+
+
+.aboutustopcont{
+  background: linear-gradient(86.84deg, rgba(255, 255, 255, 0.49) -0.66%, rgba(255, 255, 255, 0.245) 99.37%);
+
+}
+
+
+.leftsidecontmob1{
+
+  background: linear-gradient(208.16deg, rgba(255, 255, 255, 0.3) -2.37%, rgba(255, 255, 255, 0.8) 49.69%, rgba(255, 255, 255, 0.3) 101.75%);
+
+}
+.aboutbgmob1{
+  background: linear-gradient(131.36deg, #3c0707 30.52%, #5d3813 115.28%);
+
+
+}
+
+.aboutbg1{
+  background: linear-gradient(131.36deg, #480808 30.52%, #663614 115.28%);
+
+
+}
 
 
 

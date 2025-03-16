@@ -4,11 +4,6 @@ import Image from 'next/image'
 function ItemsCard({isliked,modaltriger}) {
   return (
     <div className=' flex py-6  px-2 lg:px-3 justify-between items-center  w-full lg:w-[427.68px]  border-[1px]  border-white/50 rounded-[13.03px] cardbg1'>
-
-
-
-
-
 <Image onClick={()=>modaltriger(true)}  className=' w-[118.47px] h-[152.82777404785156] rounded-[11.85px]' src={'/assets/template1/4.png'} width={10000} height={10000} alt='food_img'/>
 
 <div className=' mr-2   flex flex-col h-[152.82777404785156] justify-between items-start'>

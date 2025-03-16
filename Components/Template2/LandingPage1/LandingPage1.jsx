@@ -1,174 +1,198 @@
-"use client";
 import React from 'react'
 import Image from 'next/image'
+import CategoryItem from '../CategoryItem/CategoryItem'
+import BreakFastIcon from '@/Components/Icons/BreakFastIcon/BreakFastIcon'
+import DessertIcon from '@/Components/Icons/DessertIcon/DessertIcon'
+import DrinksIcon from '@/Components/Icons/DrinksIcon/DrinksIcon'
+import FastFoodIcon from '@/Components/Icons/FastFoodIcon/FastFoodIcon'
+import InternationalFoodIcon from '@/Components/Icons/InternationalFoodIcon/InternationalFoodIcon'
+import PersianFoodIcon from '@/Components/Icons/PersianFoodIcon/PersianFoodIcon'
+import SaladIcon from '@/Components/Icons/SaladIcon/SaladIcon'
 import ItemsCard from '../ItemsCard/ItemsCard'
-import { useState ,useRef ,useEffect } from 'react';
-import ReactModal from 'react-modal';
-import Carousel from '@/Components/Carousel/Carousel';
-import CommentCard from '../CommentCard/CommentCard';
-import gsap from "gsap";
+import Carousel from '@/Components/Carousel/Carousel'
+import ReactModal from 'react-modal'
 import Rating from "react-rating";
+
+import CommentCard from '../CommentCard/CommentCard'
 import { BiCommentAdd } from "react-icons/bi";
-ReactModal.setAppElement('#__next');
+import gsap from "gsap";
+import Link from 'next/link'
+import { useRef,useEffect,useState } from 'react'
 
-function Categoreis1() {
+function LandingPage1() {
     const [rating, setRating] = useState(3);
-  const [isOpen, setIsOpen] = useState(false);
+      const [isOpen, setIsOpen] = useState(false);
+      const closeModal = () => setIsOpen(false);
+      const openModal = () => setIsOpen(true);
+        const [activeSection, setActiveSection] = useState("section1");
+    const pageRef = useRef(null);
 
-  const openModal = () => setIsOpen(true);
-  const closeModal = () => setIsOpen(false);
-  const [activeSection, setActiveSection] = useState("section1");
-  const [showSection, setShowSection] = useState(false);
-
-
-
-
-  const sectionRef = useRef(null);
-
-
-
-  const pageRef = useRef(null);
-  const modalRef = useRef(null);
-  const modalContainerRef = useRef(null);
-
-  useEffect(() => {
-    gsap.from(pageRef.current, {
-      opacity: 0,
-      y: 50,
-      duration: 2,
-      ease: "power3.out",
-    });
-  }, []);
-
-  useEffect(() => {
-    if (openModal) {
-      gsap.fromTo(
-        modalRef.current,
-        { opacity: 0, scale: 0.5 },
-        { opacity: 1, scale: 1, duration: 10.5, ease: "back.out(1.7)" }
-      );
-    } else {
-      gsap.to(modalRef.current, {
+    useEffect(() => {
+      gsap.from(pageRef.current, {
         opacity: 0,
-        scale: 0.5,
-        duration: 5.4,
-        ease: "power3.in",
-        onComplete: () => setShowModal(false),
+        y: 50,
+        duration: 2,
+        ease: "power3.out",
       });
-    }
-  }, [openModal]);
- 
- 
- 
+    }, []);
 
-  const section1Ref = useRef(null);
-  const section2Ref = useRef(null);
-  const section3Ref = useRef(null);
 
-  // Function to navigate between sections
-  const navigateToSection = (section) => {
-    let currentSectionRef;
-    let nextSectionRef;
-console.log('sec',section)
-    // Determine the current and next section refs
-    switch (activeSection) {
-      case "section1":
-        currentSectionRef = section1Ref;
-        break;
-      case "section2":
-        currentSectionRef = section2Ref;
-        break;
-      case "section3":
-        currentSectionRef = section3Ref;
-        break;
-      default:
-        break;
-    }
-    
-    switch (section) {
-      case "section1":
-        nextSectionRef = section1Ref;
-        break;
-      case "section2":
-        nextSectionRef = section2Ref;
-        break;
-      case "section3":
-        nextSectionRef = section3Ref;
-        break;
-      default:
-        break;
-    }
-    console.log('next',nextSectionRef)
-    console.log('cur',currentSectionRef.current)
+    useEffect(() => {
+      // Select all cards
+      const cards = gsap.utils.toArray(".card");
+  
+      // Loop through each card and apply animations
+      cards.forEach((card, index) => {
+        if (card.classList.contains("animate-from-right")) {
+          // Animate from the right
+          gsap.from(card, {
+            x: 100, // Start from 100px to the right
+            opacity: 0, // Start with opacity 0
+            duration: 1, // Animation duration
+            delay: index * 0.3, // Stagger delay
+            ease: "power2.out", // Easing function
+          });
+        } else if (card.classList.contains("animate-from-left")) {
+          // Animate from the left
+          gsap.from(card, {
+            x: -100, // Start from 100px to the left
+            opacity: 0, // Start with opacity 0
+            duration: 1, // Animation duration
+            delay: index * 0.3, // Stagger delay
+            ease: "power2.out", // Easing function
+          });
+        }
+      });
+    }, []); // Empty dependency array ensures this runs only once after the component mounts
+  
 
-    // Animate out the current section
-    gsap.to(nextSectionRef.current, {
-      opacity: 0,
-      y: -50, // Move up
-      duration: 0.2,
-      ease: "power2.out",
-      onComplete: () => {
-        // Change the active section
-        setActiveSection(section);
-        // Animate in the new section
+
+
+    const modalRef = useRef(null);
+    const modalContainerRef = useRef(null);
+  
+    useEffect(() => {
+      gsap.from(pageRef.current, {
+        opacity: 0,
+        y: 50,
+        duration: 2,
+        ease: "power3.out",
+      });
+    }, []);
+  
+    useEffect(() => {
+      if (openModal) {
         gsap.fromTo(
-          currentSectionRef.current,
-          { opacity: 0, y: 50 }, // Start from below
-          { opacity: 1, y: 0, duration: 0.2, ease: "power3.out" } // Animate to center
+          modalRef.current,
+          { opacity: 0, scale: 0.5 },
+          { opacity: 1, scale: 1, duration: 10.5, ease: "back.out(1.7)" }
         );
-      },
-    });
-  };
-
-
-console.log(activeSection)
-
-
-
-
-  useEffect(() => {
-    if (isOpen) {
-      document.body.classList.add('modal-open');
-    } else {
-      document.body.classList.remove('modal-open');
-    }
-
-    // Cleanup function to remove the class when the component unmounts
-    return () => {
-      document.body.classList.remove('modal-open');
-    };
-  }, [isOpen]);
-
-
-
-
-
-  const [scrolled, setScrolled] = useState(false);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      if (window.scrollY > 120) {
-        setScrolled(true);
       } else {
-        setScrolled(false);
+        gsap.to(modalRef.current, {
+          opacity: 0,
+          scale: 0.5,
+          duration: 5.4,
+          ease: "power3.in",
+          onComplete: () => setShowModal(false),
+        });
       }
+    }, [openModal]);
+   
+   
+   
+  
+    const section1Ref = useRef(null);
+    const section2Ref = useRef(null);
+    const section3Ref = useRef(null);
+  
+    // Function to navigate between sections
+    const navigateToSection = (section) => {
+      let currentSectionRef;
+      let nextSectionRef;
+  console.log('sec',section)
+      // Determine the current and next section refs
+      switch (activeSection) {
+        case "section1":
+          currentSectionRef = section1Ref;
+          break;
+        case "section2":
+          currentSectionRef = section2Ref;
+          break;
+        case "section3":
+          currentSectionRef = section3Ref;
+          break;
+        default:
+          break;
+      }
+      
+      switch (section) {
+        case "section1":
+          nextSectionRef = section1Ref;
+          break;
+        case "section2":
+          nextSectionRef = section2Ref;
+          break;
+        case "section3":
+          nextSectionRef = section3Ref;
+          break;
+        default:
+          break;
+      }
+      console.log('next',nextSectionRef)
+      console.log('cur',currentSectionRef.current)
+  
+      // Animate out the current section
+      gsap.to(nextSectionRef.current, {
+        opacity: 0,
+        y: -50, // Move up
+        duration: 0.2,
+        ease: "power2.out",
+        onComplete: () => {
+          // Change the active section
+          setActiveSection(section);
+          // Animate in the new section
+          gsap.fromTo(
+            currentSectionRef.current,
+            { opacity: 0, y: 50 }, // Start from below
+            { opacity: 1, y: 0, duration: 0.2, ease: "power3.out" } // Animate to center
+          );
+        },
+      });
     };
-
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
+  
+  
+  console.log(activeSection)
+  
+  
+  
+  
+    useEffect(() => {
+      if (isOpen) {
+        document.body.classList.add('modal-open');
+      } else {
+        document.body.classList.remove('modal-open');
+      }
+  
+      // Cleanup function to remove the class when the component unmounts
+      return () => {
+        document.body.classList.remove('modal-open');
+      };
+    }, [isOpen]);
+  
+  
 
   return (
-    <div ref={pageRef} className=' bgimagecategorymob1 flex flex-col justify-start lg:bgimagecategory1 min-h-screen relative w-full '>
-      
+    <div  className='landingbg1  landingbgmob1 items-center lg:flex-row flex-col  p-2 pt-5 lg:pt-0 lg:p-0  flex justify-between  min-h-screen overflow-hidden     w-full relative'>
+    
+    
+    
+    
+    
+    <div>
 
+  <div className=' m-0  md:mr-20    lg:mr-5 xl:mr-10 2xl:mr-52  relative   flex   justify-center flex-col items-center gap-4  z-10'>
 
-        <div className=' lg:px-20 px-0 pb-10 lg:pb-0 items-center pt-8 lg::pt-20 mix-blend-overlay
-         flex flex-col bg-[#935420]
- justify-center gap-8  lg:bg-[#834223]'>
-
-        <div className=' mt-3 w-[95vw] lg:w-[480px] lg:hidden flex bg-white  justify-between px-4 items-center h-[72px] rounded-[12px]'>
+  <div className=' mt-3 w-[95vw] lg:w-[480px] lg:hidden flex bg-white  justify-between px-4 items-center h-[72px] rounded-[12px]'>
   <input className='  text-black bg-none border-0 outline-0 bg-transparent font-medium text-[18px]  placeholder:text-[#697C94]' type='text' placeholder='دنبال چه چیزی هستی؟' />
   <svg width="50" height="50" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
 <rect width="50" height="50" rx="10" fill="#D99F35"/>
@@ -180,27 +204,21 @@ console.log(activeSection)
 </div>
 
 
-            
-  <div className=' w-full     flex justify-center   lg:justify-between  items-center gap-4  z-10'>
-
-<div className=' flex lg:justify-start items-center gap-3'>
-
-<Image className=' lg:w-[160px] lg:h-[160px] w-[88px] h-[88px] aspect-square' src={'/assets/template1/2.png'} width={1000} height={1000} alt='Landing_Img'/>
- 
- <div className=' flex flex-col items-start justify-center'>
-
- <span className=' lg:text-[32px] text-[20px] cursor-pointer font-black'>نام فروشگاه شما</span>
- <span className=' lg:text-[20px] text-[16px] font-normal'>resturant / cafe</span>
-
- </div>
 
 
-</div>
-  
- 
+
+  <Image className=' lg:w-[160px] lg:h-[160px] w-[88px] h-[88px] aspect-square' src={'/assets/template1/2.png'} width={1000} height={1000} alt='Landing_Img'/>
+ <span className=' lg:text-[32px] cursor-pointer text-[18px] font-black'>نام فروشگاه شما</span>
+ <span className=' hidden lg:flex text-[20px] font-normal'>resturant / cafe</span>
+
+ <ItemsCard modaltriger={openModal} isliked={false}/>
 
 
-<div className=' hidden lg:flex  w-[480px] bg-white  justify-between px-4 items-center h-[72px] rounded-[12px]'>
+
+ <button className='  lg:text-[16px] text-[14px] w-[157px] lg:w-[180px] font-extrabold   bg-btn2  px-0 rounded-[12px] p-2'>درباره فروشگاه</button>
+
+
+<div className=' mt-3 w-[480px] hidden lg:flex bg-white  justify-between px-4 items-center h-[72px] rounded-[12px]'>
   <input className='  text-black bg-none border-0 outline-0 bg-transparent font-medium text-[18px]  placeholder:text-[#697C94]' type='text' placeholder='دنبال چه چیزی هستی؟' />
   <svg width="50" height="50" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
 <rect width="50" height="50" rx="10" fill="#D99F35"/>
@@ -213,65 +231,42 @@ console.log(activeSection)
   </div>
 
 
+</div>
+    
+    
+    
+    
+    
+    
+    
+      <div className=' z-30 lg:w-[738px] border-[1px] border-white lg:border-0 mt-20 lg:mt-0 w-[98%] flex flex-col   gap-4 lg:gap-14  justify-start items-center h-max pb-8 lg:h-screen leftsidecontmob1
+       lg:leftsidecont1 rounded-[26px] lg:rounded-[0px] lg:rounded-br-[64px]  lg:rounded-tr-[64px]'>
+
+<div className=' w-full lg:mt-14   mt-8   flex items-center justify-between px-4 lg:px-10'>
+
+<div className=' relative  w-fit'>
+  <span  className='  relative lg:text-[28px] text-[20px] font-black  z-10'>دسته بندی‌ها</span>
+  <div className=' absolute  w-full  lg:h-3  z-0   h-16     bg-textsec1  bottom-0 lg:bg-textbg2'></div>
+
+
+</div>
+ 
+  <button className=' cursor-pointer text-[14px] lg:text-[16px] font-extrabold p-4  lg:px-3  bg-btn2  rounded-[12px] lg:p-2'>مشاهده همه  آیتم‌ها</button>
 
 
 
+</div>
 
-        </div>
-
-
-
-
-
-<div
-  className={`sticky lg:bg-[#834223] lg:px-20 px-2 z-50 bg-[#935420]     top-0 w-full ${
-    scrolled ? " mix-blend-normal" : "mix-blend-overlay"
-  }`}
->
+<div className=' flex justify-center gap-4 items-center  px-4 lg:px-10 flex-wrap flex-row-reverse'>
+  <div className=' w-[30%] card animate-from-left'><CategoryItem  link={'/Categories'} text={'غذاهای دریایی / سالاد'} icon={<SaladIcon  color={"#900000"}/>} /></div>
+  <div className=' w-[30%]  card animate-from-right'><CategoryItem link={'/Categories'} text={'فست فود'} icon={<FastFoodIcon  color={"#900000"}/>} /></div>
+  <div className='w-[30%]  card animate-from-left'><CategoryItem link={'/Categories'} text={'غذای ایرانی'} icon={<PersianFoodIcon  color={"#900000"}/>} /></div>
+  <div className='w-[30%]   card animate-from-right'><CategoryItem link={'/Categories'} text={'خوراک و غذاهای فرنگی'} icon={<InternationalFoodIcon  color={"#900000"}/>} /></div>
+  <div className=' w-[30%]  card animate-from-left'><CategoryItem link={'/Categories'} text={'صبحانه'} icon={<BreakFastIcon  color={"#900000"}/>} /></div>
+  <div className='w-[30%]  card animate-from-right'><CategoryItem link={'/Categories'} text={'دسر و پیش‌غذا'} icon={<DessertIcon  color={"#900000"}/>} /></div>
+  <div className=' w-[30%]  card animate-from-left'><CategoryItem link={'/Categories'} text={'نوشیدنی‌های گرم و سرد'} icon={<DrinksIcon  color={"#900000"}/>} /></div>
 
 
-
-
-
-  <div className=' mt-12   pb-8 border-b-[1px] border-white gap-4  flex justify-between items-center'>
-
-    <ul className=' flex lg:flex-wrap   flex-nowrap lg:max-w-fit max-w-[70vw] scrollbar-none  overflow-x-auto justify-start gap-1 lg:gap-[32px] items-center'>
-        <li  className=' lg:min-w-[167px] min-w-[100px]  cursor-pointer transition-all duration-150 ease-in-out hover:scale-95  text-center py-[10px] rounded-[37px] bg-white/30 font-black text-[12px] lg:text-[16px]'>غذاهای دریایی / سالاد</li>
-        <li  className=' lg:min-w-[167px]  min-w-[100px]  cursor-pointer transition-all duration-150 ease-in-out hover:scale-95  text-center py-[10px] rounded-[37px] bg-none lg:bg-white/30 font-black text-[12px] lg:text-[16px]'>فست فود</li>
-        <li  className=' lg:min-w-[167px] min-w-[100px] cursor-pointer transition-all duration-150 ease-in-out hover:scale-95  text-center py-[10px] rounded-[37px] bg-none lg:bg-white/30 font-black text-[12px] lg:text-[16px]'>غذای ایرانی</li>
-        <li  className=' lg:min-w-[167px] min-w-[100px] cursor-pointer transition-all duration-150 ease-in-out hover:scale-95  text-center py-[10px] rounded-[37px] bg-none lg:bg-white/30 font-black text-[12px] lg:text-[16px]'>خوراک و غذاهای فرنگی</li>
-        <li  className=' lg:min-w-[167px] min-w-[100px] cursor-pointer transition-all duration-150 ease-in-out hover:scale-95  text-center py-[10px] rounded-[37px] bg-none lg:bg-white/30 font-black text-[12px] lg:text-[16px]'>صبحانه</li>
-        <li  className='lg:min-w-[167px] min-w-[100px] cursor-pointer transition-all duration-150 ease-in-out hover:scale-95  text-center py-[10px] rounded-[37px] bg-none lg:bg-white/30 font-black text-[12px] lg:text-[16px]'>دسر و پیش‌غذا</li>
-        <li  className=' lg:min-w-[167px] min-w-[100px] cursor-pointer transition-all duration-150 ease-in-out hover:scale-95  text-center py-[10px] rounded-[37px] bg-none lg:bg-white/30 font-black text-[12px] lg:text-[16px]'>نوشیدنی‌های گرم و سرد</li>
-  
-    </ul>
-
-    <button className=' hidden lg:flex cursor-pointer text-center   justify-center items-center gap-1  w-[182px]  bg-btn1  px-0 rounded-[10px] p-2'>
-    <svg width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M21.5 11.4V4.6C21.5 3.1 20.86 2.5 19.27 2.5H15.23C13.64 2.5 13 3.1 13 4.6V11.4C13 12.9 13.64 13.5 15.23 13.5H19.27C20.86 13.5 21.5 12.9 21.5 11.4Z" fill="white"/>
-<path d="M11 13.6V20.4C11 21.9 10.36 22.5 8.77 22.5H4.73C3.14 22.5 2.5 21.9 2.5 20.4V13.6C2.5 12.1 3.14 11.5 4.73 11.5H8.77C10.36 11.5 11 12.1 11 13.6Z" fill="white"/>
-<path d="M21.5 20.4V17.6C21.5 16.1 20.86 15.5 19.27 15.5H15.23C13.64 15.5 13 16.1 13 17.6V20.4C13 21.9 13.64 22.5 15.23 22.5H19.27C20.86 22.5 21.5 21.9 21.5 20.4Z" fill="white"/>
-<path d="M11 7.4V4.6C11 3.1 10.36 2.5 8.77 2.5H4.73C3.14 2.5 2.5 3.1 2.5 4.6V7.4C2.5 8.9 3.14 9.5 4.73 9.5H8.77C10.36 9.5 11 8.9 11 7.4Z" fill="white"/>
-</svg>
-<span className=' text-[16px] font-extrabold  '>دسته بندیها</span>
-
-
-
-    </button>
-
-
-
-
-    <button className='  flex lg:hidden cursor-pointer text-center   justify-center items-center gap-1  w-[80px]  bg-btn1  px-0 rounded-[10px] py-2'>
-
-<span className=' text-[12px] font-extrabold  '>دسته بندیها</span>
-
-
-
-    </button>
-
-
-  </div>
 
 
 
@@ -280,39 +275,6 @@ console.log(activeSection)
 
 </div>
 
-
-
-
-
-
-
-
-
-        <div className='  lg:px-20  pb-20 mix-blend-overlay bg-[#6C2727] flex flex-col justify-start items-center'>
-
-          <span className=' font-extrabold py-8 text-[16px] lg:text-[29px]'>عنوان دسته بندی</span>
-
-
-<div className=' flex   justify-center gap-4 items-center  lg:px-0 px-3 flex-wrap'>
-
-  <ItemsCard modaltriger={openModal} isliked={false}/>
-  <ItemsCard modaltriger={openModal} isliked={false}/>
-  <ItemsCard modaltriger={openModal} isliked={true} />
-  <ItemsCard modaltriger={openModal} isliked={false}/>
-  <ItemsCard modaltriger={openModal} isliked={true}/>
-  <ItemsCard modaltriger={openModal} isliked={false}/>
-  <ItemsCard modaltriger={openModal} isliked={true}/>
-
-
-</div>
-
-
-
-        </div>
-
-
-
-<div className=' overflow-auto' ref={modalContainerRef}>
 
 <ReactModal
         
@@ -654,13 +616,46 @@ console.log(activeSection)
 
 </div>
 
-   
- 
+
+
+
+
+
+        <Image className=' absolute    z-0 left-1/2 -translate-x-1/2 w-full' src={'/assets/template2/1.jfif'} width={1000} height={1000} alt='Landing_Img'/>
+        <Image
+  className='absolute z-0 lg:-right-5 flex  lg:hidden left-1/2 -translate-x-1/2 top-90 lg:-bottom-12 '
+  src={'/assets/template1/3.png'}
+  width={1000}
+  height={1000}
+  alt='Landing_Img'
+/>
+
+
+<Image
+  className='absolute z-0 flex  right-0 bottom-0 '
+  src={'/assets/template2/3.png'}
+  width={1000}
+  height={1000}
+  alt='Landing_Img'
+/>
+
+
+
+<Image
+  className='absolute z-0 bottom-0  left-0'
+  src={'/assets/template2/2.png'}
+  width={1000}
+  height={1000}
+  alt='Landing_Img'
+/>
 
 
 
     </div>
+
+
+
   )
 }
 
-export default Categoreis1
+export default LandingPage1
