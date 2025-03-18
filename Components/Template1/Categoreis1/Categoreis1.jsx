@@ -4,7 +4,7 @@ import Image from 'next/image'
 import ItemsCard from '../ItemsCard/ItemsCard'
 import { useState ,useRef ,useEffect } from 'react';
 import ReactModal from 'react-modal';
-import Carousel from '@/Components/Carousel/Carousel';
+import Carousel from '../Carousel/Carousel';
 import CommentCard from '../CommentCard/CommentCard';
 import gsap from "gsap";
 import Rating from "react-rating";

@@ -1,13 +1,13 @@
 import React from 'react'
 
-function DrinksIcon({color}) {
+function DrinksIcon({color,size}) {
   return (
-<svg width="72" height="73" viewBox="0 0 72 73" fill="none" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink">
-<mask id="mask0_1_656" style={{ maskType: 'alpha' }} maskUnits="userSpaceOnUse" x="0" y="0" width="72" height="73">
-<rect y="0.5" width="72" height="72" fill="url(#pattern0_1_656)"/>
+<svg width={size} height={size} viewBox="0 0 ${size} ${size}" fill="none" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink">
+<mask id="mask0_1_656" style={{ maskType: 'alpha' }} maskUnits="userSpaceOnUse" x="0" y="0" width={size} height={size}>
+<rect y="0.5" width={size} height={size} fill="url(#pattern0_1_656)"/>
 </mask>
 <g mask="url(#mask0_1_656)">
-<rect y="0.5" width="72" height="72" fill={color}/>
+<rect y="0.5" width={size} height={size} fill={color}/>
 </g>
 <defs>
 <pattern id="pattern0_1_656" patternContentUnits="objectBoundingBox" width="1" height="1">

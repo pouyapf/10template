@@ -1,9 +1,9 @@
 import React from 'react'
-import AboutUs from '@/Components/Template1/AboutUs/AboutUs'
+import AboutUs from '@/Components/Template2/AboutUs/AboutUs'
 
 function Index() {
   return (
-<div>
+<div >
     <AboutUs/>
 </div>
   )

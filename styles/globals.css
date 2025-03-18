@@ -78,7 +78,7 @@
   /*theme2*/
 
   --color-btn2:#da4914;
-  --color-textsec2: #900000;
+  --color-textsec2: rgba(28, 28, 28, 1);
   --color-textbg2: #da4914;
   --color-icontext: #1C1C1C;
   --color-medgray: #a3a3a3;
@@ -330,14 +330,18 @@ body.modal-open {
 
 }
 
-.leftsidecont1{
-  background: linear-gradient(213.92deg, rgba(255, 255, 255, 0.124) 0%, rgba(255, 255, 255, 0.279) 50%, rgba(255, 255, 255, 0.124) 100%);
+.leftsidecont2{
+  background: linear-gradient(213.92deg, rgba(255, 255, 255, 0.224) 0%, rgba(255, 255, 255, 0.504) 50%, rgba(255, 255, 255, 0.224) 100%);
+
+
+}
+.bgcontlandind2{
+  background: rgba(216,149,109,0.7)
 
 }
 
-.cardbg1{
-  background: linear-gradient(94.98deg, rgba(255, 255, 255, 0.2) -4.43%, rgba(255, 255, 255, 0.02) 105.48%);
-  backdrop-filter: blur(16.585960388183594px)
+.cardbg2{
+  background: linear-gradient(94.98deg, rgba(255, 255, 255, 0.7) -4.43%, rgba(255, 255, 255, 0.07) 105.48%);
 
 }
 
@@ -350,77 +354,71 @@ body.modal-open {
 
 
 
-.bgimagecategory1 {
-  position: relative; /* Ensure the pseudo-element is positioned relative to this div */
-  z-index: 1000;
-  
-}
 
-.bgimagecategory1::before {
-  
-  content: '';
-  position: absolute;
+
+
+
+
+
+
+
+
+
+
+.bgimagecategory2 {
+  position: fixed; /* Fixed position to keep it in place */
   top: 0;
   left: 0;
   width: 100%;
+  overflow: auto;
   height: 100%;
-  z-index: -1; /* Place the pseudo-element behind the content */
-
-  /* Set the background image */
-  background-image: url('/assets/template1/5.png');
-
-  /* Make the background image repeat */
-  background-repeat: repeat;
-
-  /* Ensure the image covers the entire div */
-  background-size: cover;
-
-  /* Reduce the opacity of the background image */
-  opacity: 0.4; /* Adjust this value to control the opacity */
+  background-image: url('/assets/template2/1.jfif');
+  background-size: cover; /* Cover the entire screen */
+  background-position: center; /* Center the image */
+  z-index: -1; /* Place it behind the content */
 }
 
 
 
-
-
-
-
-
-
-.bgimagecategorymob1 {
-  position: relative; /* Ensure the pseudo-element is positioned relative to this div */
-  z-index: 1000;
-  
-}
-
-.bgimagecategorymob1::before {
-  
-  content: '';
-  position: absolute;
+.bgimageabout2 {
+  position: fixed; /* Fixed position to keep it in place */
   top: 0;
   left: 0;
-  width: 400%;
+  width: 100%;
+  overflow: hidden;
   height: 100%;
-  z-index: -1; /* Place the pseudo-element behind the content */
-
-  /* Set the background image */
-  background-image: url('/assets/template1/5.png');
-
-  /* Make the background image repeat */
-  background-repeat: repeat;
-
-  /* Ensure the image covers the entire div */
-   background-size: contain;
-
-  /* Reduce the opacity of the background image */
-  opacity: 0.4; /* Adjust this value to control the opacity */
+  background-image: url('/assets/template2/1.jfif');
+  background-size: cover; /* Cover the entire screen */
+  background-position: center; /* Center the image */
+  z-index: -1; /* Place it behind the content */
 }
 
 
 
+.categorysection1bg2{
+
+  background: rgba(255, 255, 255, 0.5);
+
+
+backdrop-filter: blur(15px);
 
 
 
+
+}
+
+
+.categorysection2bg2{
+  /* From https://css.glass */
+  background: rgba(255, 255, 255, 0.5);
+
+
+
+backdrop-filter: blur(15px);
+
+
+
+}
 
 
 

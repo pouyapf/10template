@@ -1,13 +1,13 @@
 import React from 'react'
 
-function DessertIcon({color}) {
+function DessertIcon({color,size}) {
   return (
-<svg width="72" height="72" viewBox="0 0 72 72" fill="none" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink">
-<mask id="mask0_1_651" style={{ maskType: 'alpha' }} maskUnits="userSpaceOnUse" x="0" y="0" width="72" height="72">
-<rect width="72" height="72" fill="url(#pattern0_1_651)"/>
+<svg  width={size} height={size} viewBox="0 0 ${size} ${size}"  fill="none" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink">
+<mask id="mask0_1_651" style={{ maskType: 'alpha' }} maskUnits="userSpaceOnUse" x="0" y="0" width={size} height={size}>
+<rect width={size} height={size} fill="url(#pattern0_1_651)"/>
 </mask>
 <g mask="url(#mask0_1_651)">
-<rect width="72" height="72" fill={color}/>
+<rect width={size} height={size} fill={color}/>
 </g>
 <defs>
 <pattern id="pattern0_1_651" patternContentUnits="objectBoundingBox" width="1" height="1">
