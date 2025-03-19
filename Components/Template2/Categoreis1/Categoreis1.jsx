@@ -177,9 +177,9 @@ console.log(activeSection)
     return () => {
       divElement.removeEventListener('scroll', handleScroll);
     };
-  }, []); // Empty dependency array ensures this runs only once on mount
+  }, []);
 
-console.log(isScrolled)
+
 
   return (
 <div ref={divRef} className=' bgimagecategory2'>
@@ -188,7 +188,7 @@ console.log(isScrolled)
 
 
 
-<div ref={pageRef} className='   z-10 flex flex-col justify-start min-h-screen relative  w-full '>
+<div ref={pageRef} className='  z-10 flex flex-col justify-start min-h-screen relative  w-full '>
 
 
 
@@ -271,21 +271,21 @@ className={`flex  justify-center gap-2 items-center  lg:px-20 px-2 z-50    bg-[#
 <div className=' mt-12    pb-8 w-full  gap-4  flex justify-between items-center'>
 
   <ul className=' flex lg:flex-wrap    flex-nowrap lg:max-w-fit max-w-[70vw] scrollbar-none  overflow-x-auto justify-start gap-1 lg:gap-[32px] items-center'>
-      <li  className=' lg:min-w-[147px] min-w-[100px]  text-icontext  flex flex-col justify-center gap-1 items-center cursor-pointer transition-all duration-150 ease-in-out hover:scale-95  text-center py-[10px] rounded-[37px]
-       lg:bg-white font-extrabold lg:text-[10px] text-[12px] '><SaladIcon size={30} color={"#1C1C1C"}/><span>غذاهای دریایی / سالاد</span></li>
-      <li  className=' lg:min-w-[147px]  min-w-[100px] 
+      <li  className=' lg:min-w-[147px] min-w-[72px]  text-icontext  flex flex-col justify-center gap-1 items-center cursor-pointer transition-all duration-150 ease-in-out hover:scale-95  text-center py-[10px] rounded-[37px]
+      bg-white font-extrabold lg:text-[10px] text-[8px] '><SaladIcon size={30} color={"#1C1C1C"}/><span className='w-14 lg:w-fit'>غذاهای دریایی / سالاد</span></li>
+      <li  className=' lg:min-w-[147px]  min-w-[72px]
        cursor-pointer transition-all duration-150 ease-in-out hover:scale-95 
-        text-center py-[10px] rounded-[37px] bg-none text-icontext lg:bg-white flex flex-col justify-center gap-1 items-center font-extrabold lg:text-[10px] text-[12px] '><FastFoodIcon  size={30} color={"#1C1C1C"}/><span>فست فود</span></li>
-      <li  className=' lg:min-w-[147px] min-w-[100px] cursor-pointer transition-all flex flex-col justify-center gap-1 items-center duration-150 ease-in-out hover:scale-95 
-       text-center py-[10px] rounded-[37px] bg-none text-icontext lg:bg-white   font-extrabold lg:text-[10px] text-[12px] '><PersianFoodIcon size={30} color={"#1C1C1C"}/> <span>غذای ایرانی</span></li>
-      <li  className=' lg:min-w-[147px] min-w-[100px] text-icontext cursor-pointer flex flex-col justify-center gap-1 items-center transition-all duration-150 ease-in-out hover:scale-95 
-       text-center py-[10px] rounded-[37px] bg-nonelg:bg-white font-extrabold lg:text-[10px] text-[12px]  lg:bg-white '><InternationalFoodIcon size={30} color={"#1C1C1C"}/><span>خوراک و غذاهای فرنگی</span></li>
-      <li  className=' lg:min-w-[147px] min-w-[100px] text-icontext cursor-pointer  transition-all duration-150 ease-in-out hover:scale-95 
-       text-center py-[10px] rounded-[37px] bg-none  lg:bg-white  flex flex-col justify-center gap-1 items-center text-[12px] font-extrabold lg:text-[10px]'><div className=''><BreakFastIcon  size={30} color={"#1C1C1C"}/></div><span>صبحانه</span></li>
-      <li  className='lg:min-w-[147px] min-w-[100px] text-icontext cursor-pointer flex flex-col justify-center gap-1 items-center transition-all duration-150 ease-in-out hover:scale-95 
-       text-center py-[10px] rounded-[37px] bg-none  lg:bg-white  text-[12px]  font-extrabold lg:text-[10px]'> <DessertIcon  size={30} color={"#1C1C1C"}/><span>دسر و پیش‌غذا</span></li>
-      <li  className=' lg:min-w-[147px] min-w-[100px]  text-icontext cursor-pointer flex flex-col justify-center gap-1 items-center transition-all duration-150 ease-in-out hover:scale-95 
-       text-center py-[10px] rounded-[37px] bg-none  lg:bg-white  text-[12px]  font-extrabold lg:text-[10px]'><DrinksIcon  size={30} color={"#1C1C1C"}/><span>نوشیدنی‌های گرم و سرد</span></li>
+        text-center py-[10px] rounded-[37px] bg-none text-icontext bg-white flex flex-col justify-center gap-1 items-center font-extrabold lg:text-[10px] text-[8px] '><FastFoodIcon  size={30} color={"#1C1C1C"}/><span className='w-14 lg:w-fit'>فست فود</span></li>
+      <li  className=' lg:min-w-[147px] min-w-[72px] cursor-pointer transition-all flex flex-col justify-center gap-1 items-center duration-150 ease-in-out hover:scale-95 
+       text-center py-[10px] rounded-[37px] bg-none text-icontext bg-white   font-extrabold lg:text-[10px] text-[8px] '><PersianFoodIcon size={30} color={"#1C1C1C"}/> <span className='w-14 lg:w-fit'>غذای ایرانی</span></li>
+      <li  className=' lg:min-w-[147px] min-w-[72px] text-icontext cursor-pointer flex flex-col justify-center gap-1 items-center transition-all duration-150 ease-in-out hover:scale-95 
+       text-center py-[10px] rounded-[37px] bg-nonelg:bg-white font-extrabold lg:text-[10px] text-[8px]  bg-white '><InternationalFoodIcon size={30} color={"#1C1C1C"}/><span className='  w-14 lg:w-fit'>خوراک و غذاهای فرنگی</span></li>
+      <li  className=' lg:min-w-[147px] min-w-[72px] text-icontext cursor-pointer  transition-all duration-150 ease-in-out hover:scale-95 
+       text-center py-[10px] rounded-[37px] bg-none  bg-white  flex flex-col justify-center gap-1 items-center text-[8px] font-extrabold lg:text-[10px]'><div className=''><BreakFastIcon  size={30} color={"#1C1C1C"}/></div><span className='w-14 lg:w-fit'>صبحانه</span></li>
+      <li  className='lg:min-w-[147px] min-w-[72px] text-icontext cursor-pointer flex flex-col justify-center gap-1 items-center transition-all duration-150 ease-in-out hover:scale-95 
+       text-center py-[10px] rounded-[37px] bg-none  bg-white  text-[8px]  font-extrabold lg:text-[10px]'> <DessertIcon  size={30} color={"#1C1C1C"}/><span className='w-14 lg:w-fit'>دسر و پیش‌غذا</span></li>
+      <li  className=' lg:min-w-[147px] min-w-[72px]  text-icontext cursor-pointer flex flex-col justify-center gap-1 items-center transition-all duration-150 ease-in-out hover:scale-95 
+       text-center py-[10px] rounded-[37px] bg-none  bg-white text-[8px]  font-extrabold lg:text-[10px]'><DrinksIcon  size={30} color={"#1C1C1C"}/><span className='w-14 lg:w-fit'>نوشیدنی‌های گرم و سرد</span></li>
 
   </ul>
 
@@ -305,7 +305,7 @@ className={`flex  justify-center gap-2 items-center  lg:px-20 px-2 z-50    bg-[#
 
 
 
-  <button className='  flex lg:hidden cursor-pointer text-center   justify-center items-center gap-1  w-[80px]  bg-btn1  px-0 rounded-[10px] py-2'>
+  <button className='  flex lg:hidden cursor-pointer text-center   justify-center items-center gap-1  min-w-[126px]  bg-[#1D1D1D]  px-0 rounded-[10px] py-2'>
 
 <span className=' text-[12px] font-extrabold  '>دسته بندیها</span>
 
@@ -351,24 +351,24 @@ className={`  justify-center gap-2 items-center transition-all duration-150 ease
 
 
 
-<div className=' mt-12    pb-8 border-b-[1px] border-white gap-4  flex justify-between items-center'>
+<div className=' mt-12    pb-8 w-full  gap-4  flex justify-between items-center'>
 
   <ul className=' flex lg:flex-wrap    flex-nowrap lg:max-w-fit max-w-[70vw] scrollbar-none  overflow-x-auto justify-start gap-1 lg:gap-[32px] items-center'>
-      <li  className=' lg:min-w-[147px] min-w-[100px]  text-icontext  flex flex-col justify-center gap-1 items-center cursor-pointer transition-all duration-150 ease-in-out hover:scale-95  text-center py-[10px] rounded-[37px]
-       lg:bg-white font-extrabold lg:text-[10px] text-[12px] '><SaladIcon size={30} color={"#1C1C1C"}/><span>غذاهای دریایی / سالاد</span></li>
-      <li  className=' lg:min-w-[147px]  min-w-[100px] 
+      <li  className=' lg:min-w-[147px] min-w-[72px]  text-icontext  flex flex-col justify-center gap-1 items-center cursor-pointer transition-all duration-150 ease-in-out hover:scale-95  text-center py-[10px] rounded-[37px]
+      bg-white font-extrabold lg:text-[10px] text-[8px] '><SaladIcon size={30} color={"#1C1C1C"}/><span className='w-14 lg:w-fit'>غذاهای دریایی / سالاد</span></li>
+      <li  className=' lg:min-w-[147px]  min-w-[72px]
        cursor-pointer transition-all duration-150 ease-in-out hover:scale-95 
-        text-center py-[10px] rounded-[37px] bg-none text-icontext lg:bg-white flex flex-col justify-center gap-1 items-center font-extrabold lg:text-[10px] text-[12px] '><FastFoodIcon  size={30} color={"#1C1C1C"}/><span>فست فود</span></li>
-      <li  className=' lg:min-w-[147px] min-w-[100px] cursor-pointer transition-all flex flex-col justify-center gap-1 items-center duration-150 ease-in-out hover:scale-95 
-       text-center py-[10px] rounded-[37px] bg-none text-icontext lg:bg-white   font-extrabold lg:text-[10px] text-[12px] '><PersianFoodIcon size={30} color={"#1C1C1C"}/> <span>غذای ایرانی</span></li>
-      <li  className=' lg:min-w-[147px] min-w-[100px] text-icontext cursor-pointer flex flex-col justify-center gap-1 items-center transition-all duration-150 ease-in-out hover:scale-95 
-       text-center py-[10px] rounded-[37px] bg-nonelg:bg-white font-extrabold lg:text-[10px] text-[12px]  lg:bg-white '><InternationalFoodIcon size={30} color={"#1C1C1C"}/><span>خوراک و غذاهای فرنگی</span></li>
-      <li  className=' lg:min-w-[147px] min-w-[100px] text-icontext cursor-pointer  transition-all duration-150 ease-in-out hover:scale-95 
-       text-center py-[10px] rounded-[37px] bg-none  lg:bg-white  flex flex-col justify-center gap-1 items-center text-[12px] font-extrabold lg:text-[10px]'><div className=''><BreakFastIcon  size={30} color={"#1C1C1C"}/></div><span>صبحانه</span></li>
-      <li  className='lg:min-w-[147px] min-w-[100px] text-icontext cursor-pointer flex flex-col justify-center gap-1 items-center transition-all duration-150 ease-in-out hover:scale-95 
-       text-center py-[10px] rounded-[37px] bg-none  lg:bg-white  text-[12px]  font-extrabold lg:text-[10px]'> <DessertIcon  size={30} color={"#1C1C1C"}/><span>دسر و پیش‌غذا</span></li>
-      <li  className=' lg:min-w-[147px] min-w-[100px]  text-icontext cursor-pointer flex flex-col justify-center gap-1 items-center transition-all duration-150 ease-in-out hover:scale-95 
-       text-center py-[10px] rounded-[37px] bg-none  lg:bg-white  text-[12px]  font-extrabold lg:text-[10px]'><DrinksIcon  size={30} color={"#1C1C1C"}/><span>نوشیدنی‌های گرم و سرد</span></li>
+        text-center py-[10px] rounded-[37px] bg-none text-icontext bg-white flex flex-col justify-center gap-1 items-center font-extrabold lg:text-[10px] text-[8px] '><FastFoodIcon  size={30} color={"#1C1C1C"}/><span className='w-14 lg:w-fit'>فست فود</span></li>
+      <li  className=' lg:min-w-[147px] min-w-[72px] cursor-pointer transition-all flex flex-col justify-center gap-1 items-center duration-150 ease-in-out hover:scale-95 
+       text-center py-[10px] rounded-[37px] bg-none text-icontext bg-white   font-extrabold lg:text-[10px] text-[8px] '><PersianFoodIcon size={30} color={"#1C1C1C"}/> <span className='w-14 lg:w-fit'>غذای ایرانی</span></li>
+      <li  className=' lg:min-w-[147px] min-w-[72px] text-icontext cursor-pointer flex flex-col justify-center gap-1 items-center transition-all duration-150 ease-in-out hover:scale-95 
+       text-center py-[10px] rounded-[37px] bg-nonelg:bg-white font-extrabold lg:text-[10px] text-[8px]  bg-white '><InternationalFoodIcon size={30} color={"#1C1C1C"}/><span className='  w-14 lg:w-fit'>خوراک و غذاهای فرنگی</span></li>
+      <li  className=' lg:min-w-[147px] min-w-[72px] text-icontext cursor-pointer  transition-all duration-150 ease-in-out hover:scale-95 
+       text-center py-[10px] rounded-[37px] bg-none  bg-white  flex flex-col justify-center gap-1 items-center text-[8px] font-extrabold lg:text-[10px]'><div className=''><BreakFastIcon  size={30} color={"#1C1C1C"}/></div><span className='w-14 lg:w-fit'>صبحانه</span></li>
+      <li  className='lg:min-w-[147px] min-w-[72px] text-icontext cursor-pointer flex flex-col justify-center gap-1 items-center transition-all duration-150 ease-in-out hover:scale-95 
+       text-center py-[10px] rounded-[37px] bg-none  bg-white  text-[8px]  font-extrabold lg:text-[10px]'> <DessertIcon  size={30} color={"#1C1C1C"}/><span className='w-14 lg:w-fit'>دسر و پیش‌غذا</span></li>
+      <li  className=' lg:min-w-[147px] min-w-[72px]  text-icontext cursor-pointer flex flex-col justify-center gap-1 items-center transition-all duration-150 ease-in-out hover:scale-95 
+       text-center py-[10px] rounded-[37px] bg-none  bg-white text-[8px]  font-extrabold lg:text-[10px]'><DrinksIcon  size={30} color={"#1C1C1C"}/><span className='w-14 lg:w-fit'>نوشیدنی‌های گرم و سرد</span></li>
 
   </ul>
 
@@ -388,7 +388,7 @@ className={`  justify-center gap-2 items-center transition-all duration-150 ease
 
 
 
-  <button className='  flex lg:hidden cursor-pointer text-center   justify-center items-center gap-1  w-[80px]  bg-btn1  px-0 rounded-[10px] py-2'>
+  <button className='  flex lg:hidden cursor-pointer text-center   justify-center items-center gap-1  min-w-[126px]  bg-[#1D1D1D]  px-0 rounded-[10px] py-2'>
 
 <span className=' text-[12px] font-extrabold  '>دسته بندیها</span>
 
@@ -425,7 +425,7 @@ className={`  justify-center gap-2 items-center transition-all duration-150 ease
 
 
 
-      <div className='categorysection2bg2    z-50 relative   lg:px-20  pb-20  flex flex-col justify-start items-center'>
+      <div className='categorysection2bg2     z-0 relative     lg:px-20  pb-20  flex flex-col justify-start items-center'>
 
         <span className=' font-extrabold py-8 text-[16px] lg:text-[29px]'>عنوان دسته بندی</span>
 
@@ -794,8 +794,18 @@ placeholder="شماره تلفن"
 
 
    
-    <div className='    topcustom -top-50  min-w-[353px] min-h-[344px]   left-1/2 -translate-x-1/2   absolute lg:hidden flex'>
+    <div className='     topcustom -top-50  min-w-[353px] min-h-[344px]   left-1/2 -translate-x-1/2   absolute lg:hidden flex'>
     <div className=' relative'>
+
+
+      <div className='w-[326px] absolute -top-2  left-1/2 -translate-x-1/2 h-[50px] bg-[#DA4914] rounded-[27px]'></div>
+
+
+
+
+
+
+
 
     <div onClick={()=>setIsOpen(false)} className='absolute rounded-full bg-textsec1/80 right-5   shadow-2xl lg:hidden block top-5 z-40 hover:scale-95 transition-all duration-150 ease-in-out '>
 <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">

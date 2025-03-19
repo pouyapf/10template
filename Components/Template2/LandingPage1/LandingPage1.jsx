@@ -159,11 +159,12 @@ function LandingPage1() {
         },
       });
     };
-  
-  
-  console.log(activeSection)
-  
-  
+    const [width, setwidth] = useState(null);
+    useEffect(() => {
+      // This code runs only in the browser
+      setwidth(window.innerWidth >= 1024 ? 72: 48 );
+    }, []);
+    console.log(width)
   
   
     useEffect(() => {
@@ -182,13 +183,15 @@ function LandingPage1() {
   
 
   return (
-    <div  className='landingbg1  landingbgmob1 items-center lg:flex-row flex-col  p-2 pt-5 lg:pt-0 lg:p-0  flex justify-between  min-h-screen overflow-hidden     w-full relative'>
+    <div  className='landingbg1   landingbgmob1  items-center lg:items-start lg:flex-row flex-col
+      px-2  lg:pt-0 lg:p-0  flex   lg:justify-between justify-start 
+       min-h-screen overflow-hidden     w-full relative'>
     
     
     
     
     
-    <div className='   bgcontlandind2 border-[1px] border-white h-screen flex justify-center items-center w-[665px] z-50'>
+    <div className=' lg:flex hidden  bgcontlandind2 border-[1px] border-white h-screen  justify-center items-center w-[665px] z-50'>
 
   <div className='  relative   flex   justify-center flex-col  items-start gap-4  z-10'>
 
@@ -235,45 +238,104 @@ function LandingPage1() {
 
 
 </div>
-    
-    
-    
-    
-    
-    
-    
-      <div className=' z-30 lg:w-[738px] border-[1px] border-white lg:border-0 mt-20 lg:mt-0 w-[98%] flex flex-col   gap-4 lg:gap-14  justify-start items-center h-max pb-8 lg:h-screen leftsidecontmob1
-       lg:leftsidecont2 rounded-[26px] lg:rounded-[0px] lg:rounded-br-[64px]  lg:rounded-tr-[64px]'>
 
-<div className=' w-full lg:mt-14   mt-8   flex items-center justify-between px-4 lg:px-10'>
+
+
+<div className='  flex flex-col justify-start items-center gap-5 z-40'>
+
+
+<div className='mt-10 z-30  w-[95vw] lg:w-[480px] lg:hidden flex bg-white  justify-between px-4 items-center h-[72px] rounded-[12px]'>
+  <input className='  text-black bg-none border-0 outline-0 bg-transparent font-medium text-[18px]  placeholder:text-[#697C94]' type='text' placeholder='دنبال چه چیزی هستی؟' />
+  <svg width="50" height="50" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect width="50" height="50" rx="10" fill="#D99F35"/>
+<path d="M35.6667 24.3347C35.6667 30.5945 30.5925 35.6693 24.3333 35.6693C18.0741 35.6693 13 30.5945 13 24.3347C13 18.0747 18.0741 13 24.3333 13C30.5925 13 35.6667 18.0747 35.6667 24.3347Z" fill="white" fill-opacity="0.18"/>
+<path d="M37 36.9996L32.3461 32.346M32.3461 32.346C34.3961 30.2952 35.664 27.4624 35.664 24.3333C35.664 18.0741 30.5905 13 24.332 13C18.0735 13 13 18.0741 13 24.3333C13 30.5925 18.0735 35.6667 24.332 35.6667C27.4619 35.6667 30.2953 34.3976 32.3461 32.346Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
+
+
+</div>
+    
+
+<div className='z-30 bg-[#E361258A] h-[165px] lg:hidden flex pl-6 gap-4 rounded-[24px] border-[1px]
+ border-white  justify-center items-center w-[95vw]'>
+
+
+  <Image src={'/assets/template2/5.png'} width={125} height={125} alt='logo_home'/>
+
+  <div className=' flex flex-col justify-center gap-2 items-start'>
+    <span className='text-[18px] font-black text-white'>نام فروشگاه شما</span>
+
+    <button className=' text-[14px] font-extrabold p-2 rounded-[12px] px-8 bg-[#1D1D1D]'>درباره فروشگاه</button>
+  </div>
+
+
+
+</div>
+
+
+
+
+</div>
+    
+
+    
+    
+    
+    
+      <div className=' z-30 lg:w-[738px] mb-20 border-[1px] border-white mt-3 lg:mt-0 w-[98%] flex flex-col
+         gap-4 lg:gap-14  relative justify-start items-center h-max pb-14 lg:pb-8 lg:h-screen leftsidecontmob2
+       lg:leftsidecont2 rounded-[26px] min-h-[519px] backdrop-blur-[3px] lg:rounded-[0px] lg:rounded-br-[64px]  lg:rounded-tr-[64px]'>
+
+<div className=' w-full lg:mt-14   mt-4   flex items-center justify-between px-4 lg:px-10'>
 
 <div className=' relative  w-fit'>
   <span  className='  relative lg:text-[28px] text-[20px] font-black  z-10'>دسته بندی‌ها</span>
-  <div className=' absolute  w-full  lg:h-3  z-0   h-16     bg-textbg2  bottom-0 lg:bg-textbg2'></div>
+  <div className=' absolute  w-full  lg:h-3  z-0   h-8     bg-textbg2  bottom-0 lg:bg-textbg2'></div>
 
 
 </div>
  
-  <button className=' cursor-pointer text-[14px] lg:text-[16px] font-extrabold p-4  lg:px-3  bg-btn2  rounded-[12px] lg:p-2'>مشاهده همه  آیتم‌ها</button>
+  <button className=' cursor-pointer text-[14px] lg:text-[16px] font-extrabold p-4 px-6   lg:px-3  bg-[#1D1D1D]  rounded-[12px] lg:p-2'>مشاهده همه  آیتم‌ها</button>
 
 
 
 </div>
 
 <div className=' flex justify-center gap-4 items-center  px-4 lg:px-10 flex-wrap flex-row-reverse'>
-  <div className=' w-[30%] card animate-from-left'><CategoryItem  link={'/Categories'} text={'غذاهای دریایی / سالاد'} icon={<SaladIcon  size={72} color={"#ffffff"}/>} /></div>
-  <div className=' w-[30%]  card animate-from-right'><CategoryItem link={'/Categories'} text={'فست فود'} icon={<FastFoodIcon  size={72} color={"#ffffff"}/>} /></div>
-  <div className='w-[30%]  card animate-from-left'><CategoryItem link={'/Categories'} text={'غذای ایرانی'} icon={<PersianFoodIcon size={72} color={"#ffffff"}/>} /></div>
-  <div className='w-[30%]   card animate-from-right'><CategoryItem link={'/Categories'} text={'خوراک و غذاهای فرنگی'} icon={<InternationalFoodIcon size={72}  color={"#ffffff"}/>} /></div>
-  <div className=' w-[30%]  card animate-from-left'><CategoryItem link={'/Categories'} text={'صبحانه'} icon={<BreakFastIcon  size={72} color={"#ffffff"}/>} /></div>
-  <div className='w-[30%]  card animate-from-right'><CategoryItem link={'/Categories'} text={'دسر و پیش‌غذا'} icon={<DessertIcon  size={72} color={"#ffffff"}/>} /></div>
-  <div className=' w-[30%]  card animate-from-left'><CategoryItem link={'/Categories'} text={'نوشیدنی‌های گرم و سرد'} icon={<DrinksIcon  size={72} color={"#ffffff"}/>} /></div>
+  <div className=' w-[30%] card animate-from-left'><CategoryItem  link={'/Categories'} text={'غذاهای دریایی / سالاد'} icon={<SaladIcon size={width} color="#ffffff" />} /></div>
+  <div className='  w-[30%]  card animate-from-right'><CategoryItem link={'/Categories'} text={'فست فود'} icon={<FastFoodIcon  size={width} color={"#ffffff"}/>} /></div>
+  <div className=' w-[30%]  card animate-from-left'><CategoryItem link={'/Categories'} text={'غذای ایرانی'} icon={<PersianFoodIcon size={width} color={"#ffffff"}/>} /></div>
+  <div className='  w-[30%] card animate-from-right'><CategoryItem link={'/Categories'} text={'خوراک و غذاهای فرنگی'} icon={<InternationalFoodIcon size={width}  color={"#ffffff"}/>} /></div>
+  <div className='  w-[30%] card animate-from-left'><CategoryItem link={'/Categories'} text={'صبحانه'} icon={<BreakFastIcon  size={width} color={"#ffffff"}/>} /></div>
+  <div className='  w-[30%] card animate-from-right'><CategoryItem link={'/Categories'} text={'دسر و پیش‌غذا'} icon={<DessertIcon  size={width} color={"#ffffff"}/>} /></div>
+  <div className='  w-[30%]  card animate-from-left'><CategoryItem link={'/Categories'} text={'نوشیدنی‌های گرم و سرد'} icon={<DrinksIcon  size={width} color={"#ffffff"}/>} /></div>
 
 
 
 
 
 
+
+
+</div>
+<div className=' absolute lg:hidden block -bottom-0'>
+<div className=' flex flex-col  relative justify-start items-center gap-1' >
+<Image
+  className='  w-38 h-auto'
+  src={'/assets/template2/7.png'}
+  width={1000}
+  height={1000}
+  alt='Landing_Img'
+/>
+<Image
+  className='  w-26 absolute top-5 h-auto '
+  src={'/assets/template2/7.png'}
+  width={1000}
+  height={1000}
+  alt='Landing_Img'
+/>
+
+</div>
 
 
 </div>
@@ -622,11 +684,25 @@ function LandingPage1() {
 
 
 
+<div className=' fixed  top-0   z-0  bg-black h-screen  left-1/2 -translate-x-1/2 w-screen'>
 
 
-        <Image className=' absolute    z-0 left-1/2 -translate-x-1/2 w-full' src={'/assets/template2/1.jfif'} width={1000} height={1000} alt='Landing_Img'/>
+  <div className=' relative bg-red-700'>
+
+  <Image className=' z-10 top-0  h-screen  absolute  w-full   ' src={'/assets/template2/1.jfif'} width={1000} height={1000} alt='Landing_Img'/>
+  <div className="absolute   z-50 top-0  h-screen w-full  bg-white opacity-60 "></div>
+  
+  </div>
+</div>
+
+     
+        
+        
+        
+        
+        
         <Image
-  className='absolute z-0 lg:-right-5 flex  lg:hidden left-1/2 -translate-x-1/2 top-90 lg:-bottom-12 '
+  className='fixed z-0 lg:-right-5 flex  lg:hidden left-1/2 -translate-x-1/2 top-90 lg:-bottom-12 '
   src={'/assets/template1/3.png'}
   width={1000}
   height={1000}
@@ -635,7 +711,7 @@ function LandingPage1() {
 
 
 <Image
-  className='absolute z-0 flex  right-0 bottom-0 '
+  className='fixed z-0 flex  right-0 bottom-0 '
   src={'/assets/template2/3.png'}
   width={1000}
   height={1000}
@@ -645,7 +721,7 @@ function LandingPage1() {
 
 
 <Image
-  className='absolute z-0 bottom-0  left-0'
+  className='fixed z-0 bottom-0  left-0'
   src={'/assets/template2/2.png'}
   width={1000}
   height={1000}

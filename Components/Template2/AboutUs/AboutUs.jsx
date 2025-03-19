@@ -21,15 +21,16 @@ function AboutUs() {
 
 
 
-      <div className=' bg-[#E361254D] overflow-auto  max-h-screen backdrop-blur-[5px] w-full lg:flex-row flex-col items-start gap-30  flex
+      <div className=' bg-[#E361254D] justify-start overflow-auto  max-h-screen backdrop-blur-[5px] w-full lg:flex-row 
+      flex-col items-start  lg:gap-30 gap-3  flex
     
-    justify-start lg:justify-center py-20 h-screen relative'>
+ lg:justify-center lg:py-20 py-10 h-screen relative'>
 
 
-      <div className=' relative z-10 flex flex-col px-4  h-[380px] lg:h-auto mx-3  lg:bg-none rounded-[24px]  border-[1px] border-white bg-[#E361258A]   items-center justify-start lg:items-start gap-5  w-[361px] lg:w-[445px]'>
+      <div className='  lg:p-0 p-6 relative z-10 flex flex-col px-4  h-[380px] lg:h-auto mx-3  lg:bg-none rounded-[24px]  lg:border-[1px] border-none border-white  lg:bg-transparent  bg-[#E361258A]   items-center justify-start lg:items-start gap-5  w-[361px] lg:w-[445px]'>
 
 
-<div className='relative z-10   flex-row  flex justify-start items-center gap-3'>
+<div className='relative z-10  lg:w-fit w-full   flex-row  flex justify-start items-center gap-3'>
         
         <Image className=' lg:block hidden lg:w-[160px] lg:h-[160px] w-[88px] h-[88px] aspect-square' src={'/assets/template1/2.png'} width={1000} height={1000} alt='logo_Img'/>
         <Image className=' lg:hidden block  lg:w-[160px] lg:h-[160px] w-[88px] h-[88px] aspect-square' src={'/assets/template2/4.png'} width={1000} height={1000} alt='logo_Img'/>
@@ -45,8 +46,8 @@ function AboutUs() {
         </div>
 
 
-        <p className='relative z-10 lg:text-[#FFFFFF]   text-[#1C1C1C] lg:text-[20px] lg:w-fit w-[361px] text-[13px] font-medium'>گرچه به دلیل شهرت کباب شاندیز مشهد شاید بیش از یکصد رستوران نام شاندیز را با خود همراه دارند، اما این رستوران محبوب ترین و تا همین چند وقت پیش معروف ترین شاندیز تهران بوده است. علیرغم وسعت بزرگ رستوران اما به دلیل کیفیت مشتری پسند آن ظهرها علی الخصوص روزهای آخر هفته باید حداقل نیم ساعت زمان را برای صف انتظار شاندیز در نظر داشته باشید.</p>
-        <div className='w-[335px]  lg:hidden block font-extrabold text-[14px] text-center py-3.5 cursor-pointer transition-all duration-150 ease-in-out hover:scale-95 rounded-[12px] bg-btn1'>مشاهده منوی رستوران</div>
+        <p className='relative z-10 text-[#FFFFFF] px-6   lg:text-[#1C1C1C] lg:text-[20px] lg:w-fit w-[361px] text-[13px] font-medium'>گرچه به دلیل شهرت کباب شاندیز مشهد شاید بیش از یکصد رستوران نام شاندیز را با خود همراه دارند، اما این رستوران محبوب ترین و تا همین چند وقت پیش معروف ترین شاندیز تهران بوده است. علیرغم وسعت بزرگ رستوران اما به دلیل کیفیت مشتری پسند آن ظهرها علی الخصوص روزهای آخر هفته باید حداقل نیم ساعت زمان را برای صف انتظار شاندیز در نظر داشته باشید.</p>
+        <div className='w-[335px]  lg:hidden block font-extrabold text-[14px] text-center py-3.5 cursor-pointer transition-all duration-150 ease-in-out hover:scale-95 rounded-[12px] bg-[#1D1D1D]'>مشاهده منوی رستوران</div>
     
 
 </div>
