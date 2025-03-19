@@ -21,16 +21,19 @@ function AboutUs() {
 
 
 
-      <div className=' bg-[#E361254D] justify-start overflow-auto  max-h-screen backdrop-blur-[5px] w-full lg:flex-row 
-      flex-col items-start  lg:gap-30 gap-3  flex
+      <div className=' bg-[#E361254D] justify-start overflow-auto  max-h-screen backdrop-blur-[5px] 
+      w-full lg:flex-row 
+      flex-col items-center  lg:items-start  lg:gap-30 gap-3  flex
     
  lg:justify-center lg:py-20 py-10 h-screen relative'>
 
 
-      <div className='  lg:p-0 p-6 relative z-10 flex flex-col px-4  h-[380px] lg:h-auto mx-3  lg:bg-none rounded-[24px]  lg:border-[1px] border-none border-white  lg:bg-transparent  bg-[#E361258A]   items-center justify-start lg:items-start gap-5  w-[361px] lg:w-[445px]'>
+      <div className='  lg:p-0 p-6 relative z-10 border-[1px] border-white flex flex-col px-4  h-[380px] 
+      lg:h-auto mx-3  lg:bg-none rounded-[24px] border-[1px]   lg:border-none 
+        lg:bg-transparent  bg-[#E361258A]   items-center justify-start lg:items-start gap-5  w-[361px] lg:w-[445px]'>
 
 
-<div className='relative z-10  lg:w-fit w-full   flex-row  flex justify-start items-center gap-3'>
+<div className='relative z-10  lg:w-fit w-full    flex-row  flex justify-start items-center gap-3'>
         
         <Image className=' lg:block hidden lg:w-[160px] lg:h-[160px] w-[88px] h-[88px] aspect-square' src={'/assets/template1/2.png'} width={1000} height={1000} alt='logo_Img'/>
         <Image className=' lg:hidden block  lg:w-[160px] lg:h-[160px] w-[88px] h-[88px] aspect-square' src={'/assets/template2/4.png'} width={1000} height={1000} alt='logo_Img'/>
@@ -361,7 +364,7 @@ function AboutUs() {
 
 </div>
 
-<div className='lg:w-[687px] w-[361px] h-[279px] flex  p-7  justify-start items-center lg:items-start flex-col gap-3 bg-white rounded-[18px]'>
+<div className='lg:w-[687px] w-[361px] h-[279px] flex lg:mb-0 mb-50  p-7  justify-start items-center lg:items-start flex-col gap-3 bg-white rounded-[18px]'>
   <span className='lg:text-[20px] text-[16px] text-[#FF7441] font-extrabold '>آدرس فروشگاه</span>
 <Image className=' lg:w-[630px] lg:h-[202px] w-[340px] h-[164px]' src={'/assets/template1/8.png'} width={10000} height={10000} alt='map_img'/>
 
