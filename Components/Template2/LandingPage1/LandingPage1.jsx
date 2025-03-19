@@ -689,7 +689,7 @@ function LandingPage1() {
 
   <div className=' relative'>
 
-  <Image className=' z-10 top-0  h-screen  absolute  w-full   ' src={'/assets/template2/1.jfif'} width={1000} height={1000} alt='Landing_Img'/>
+  <Image className=' z-10 top-0  h-screen  absolute  w-full   ' src={'/assets/template2/1.png'} width={1000} height={1000} alt='Landing_Img'/>
   <div className="absolute   z-50 top-0  h-screen w-full  bg-white opacity-60 "></div>
   
   </div>
