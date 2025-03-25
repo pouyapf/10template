@@ -83,6 +83,13 @@
   --color-icontext: #1C1C1C;
   --color-medgray: #a3a3a3;
 
+
+    /*theme3*/
+
+    --color-btn3:#80E9CB;
+    --color-icon3:#412820;
+
+
 }
 
 .ReactModal__Overlay {
@@ -513,3 +520,28 @@ backdrop-filter: blur(15px);
 
 }
 }
+
+
+
+
+
+
+
+
+
+
+/*theme3 */
+
+
+
+  @media (max-height: 750px) {
+    .topcustom2{
+      top: 10px;
+    }
+    .hcustom{
+      max-height: 16rem;
+      height: 16rem;
+    
+    }
+    }
+

@@ -164,7 +164,7 @@ function LandingPage1() {
       // This code runs only in the browser
       setwidth(window.innerWidth >= 1024 ? 72: 48 );
     }, []);
-    console.log(width)
+
   
   
     useEffect(() => {
@@ -191,7 +191,8 @@ function LandingPage1() {
     
     
     
-    <div className=' lg:flex hidden  bgcontlandind2 border-[1px] border-white h-screen  justify-center items-center w-[665px] z-50'>
+    <div className=' lg:flex hidden  bgcontlandind2 border-[1px]
+     border-white h-fit min-h-screen  justify-center items-center w-[665px] z-50'>
 
   <div className='  relative   flex   justify-center flex-col  items-start gap-4  z-10'>
 
@@ -283,8 +284,8 @@ function LandingPage1() {
     
     
       <div className=' z-30 lg:w-[738px] mb-20 border-[1px] border-white mt-3 lg:mt-0 w-[98%] flex flex-col
-         gap-4 lg:gap-14  relative justify-start items-center h-max pb-14 lg:pb-8 lg:h-screen leftsidecontmob2
-       lg:leftsidecont2 rounded-[26px] min-h-[519px] backdrop-blur-[3px] lg:rounded-[0px] lg:rounded-br-[64px]  lg:rounded-tr-[64px]'>
+         gap-4 lg:gap-14  relative justify-start items-center h-max pb-14 lg:pb-8 lg:min-h-screen h-fit lg:h-screen leftsidecontmob2
+       lg:leftsidecont2 rounded-[26px] min-h-[519px] backdrop-blur-[3px]  lg:rounded-[0px] lg:rounded-br-[64px]  lg:rounded-tr-[64px]'>
 
 <div className=' w-full lg:mt-14   mt-4   flex items-center justify-between px-4 lg:px-10'>
 
@@ -302,13 +303,13 @@ function LandingPage1() {
 </div>
 
 <div className=' flex justify-center gap-4 items-center  px-4 lg:px-10 flex-wrap flex-row-reverse'>
-  <div className=' w-[30%] card animate-from-left'><CategoryItem  link={'/Categories'} text={'غذاهای دریایی / سالاد'} icon={<SaladIcon size={width} color="#ffffff" />} /></div>
-  <div className='  w-[30%]  card animate-from-right'><CategoryItem link={'/Categories'} text={'فست فود'} icon={<FastFoodIcon  size={width} color={"#ffffff"}/>} /></div>
-  <div className=' w-[30%]  card animate-from-left'><CategoryItem link={'/Categories'} text={'غذای ایرانی'} icon={<PersianFoodIcon size={width} color={"#ffffff"}/>} /></div>
-  <div className='  w-[30%] card animate-from-right'><CategoryItem link={'/Categories'} text={'خوراک و غذاهای فرنگی'} icon={<InternationalFoodIcon size={width}  color={"#ffffff"}/>} /></div>
-  <div className='  w-[30%] card animate-from-left'><CategoryItem link={'/Categories'} text={'صبحانه'} icon={<BreakFastIcon  size={width} color={"#ffffff"}/>} /></div>
-  <div className='  w-[30%] card animate-from-right'><CategoryItem link={'/Categories'} text={'دسر و پیش‌غذا'} icon={<DessertIcon  size={width} color={"#ffffff"}/>} /></div>
-  <div className='  w-[30%]  card animate-from-left'><CategoryItem link={'/Categories'} text={'نوشیدنی‌های گرم و سرد'} icon={<DrinksIcon  size={width} color={"#ffffff"}/>} /></div>
+  <div className=' w-[30%] card animate-from-left'><CategoryItem  link={'/template2/categories'} text={'غذاهای دریایی / سالاد'} icon={<SaladIcon size={width} color="#ffffff" />} /></div>
+  <div className='  w-[30%]  card animate-from-right'><CategoryItem link={'/template2/categories'} text={'فست فود'} icon={<FastFoodIcon  size={width} color={"#ffffff"}/>} /></div>
+  <div className=' w-[30%]  card animate-from-left'><CategoryItem link={'/template2/categories'} text={'غذای ایرانی'} icon={<PersianFoodIcon size={width} color={"#ffffff"}/>} /></div>
+  <div className='  w-[30%] card animate-from-right'><CategoryItem link={'/template2/categories'} text={'خوراک و غذاهای فرنگی'} icon={<InternationalFoodIcon size={width}  color={"#ffffff"}/>} /></div>
+  <div className='  w-[30%] card animate-from-left'><CategoryItem link={'/template2/categories'} text={'صبحانه'} icon={<BreakFastIcon  size={width} color={"#ffffff"}/>} /></div>
+  <div className='  w-[30%] card animate-from-right'><CategoryItem link={'/template2/categories'} text={'دسر و پیش‌غذا'} icon={<DessertIcon  size={width} color={"#ffffff"}/>} /></div>
+  <div className='  w-[30%]  card animate-from-left'><CategoryItem link={'/template2/categories'} text={'نوشیدنی‌های گرم و سرد'} icon={<DrinksIcon  size={width} color={"#ffffff"}/>} /></div>
 
 
 
