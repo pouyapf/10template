@@ -4,9 +4,9 @@ import Link from 'next/link'
 function Home() {
   return (
     <div className=' flex justify-center items-center gap-2 flex-col min-h-screen'>
-<Link href={'/template1'} className=' text-center border border-btn3 rounded min-w-20 p-2' >Theme1</Link>
-<Link href={'/template2'} className=' text-center border border-btn3 rounded min-w-20 p-2' >Theme2</Link>
-<Link href={'/template3'} className=' text-center border border-btn3 rounded min-w-20 p-2' >Theme3</Link>
+<Link href={'/template1'} className=' text-black text-center border border-btn3 rounded min-w-20 p-2' >Theme1</Link>
+<Link href={'/template2'} className='text-black text-center border border-btn3 rounded min-w-20 p-2' >Theme2</Link>
+<Link href={'/template3'} className='text-black text-center border border-btn3 rounded min-w-20 p-2' >Theme3</Link>
 
 
     </div>
