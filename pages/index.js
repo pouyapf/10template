@@ -7,7 +7,7 @@ function Home() {
 <Link href={'/template1'} className='  text-white text-center border border-btn3 rounded min-w-20 p-2' >Theme1</Link>
 <Link href={'/template2'} className=' text-white text-center border border-btn3 rounded min-w-20 p-2' >Theme2</Link>
 <Link href={'/template3'} className=' text-white text-center border border-btn3 rounded min-w-20 p-2' >Theme3</Link>
-
+<Link href={'/template4'} className=' text-white text-center border border-btn3 rounded min-w-20 p-2' >Theme4</Link>
 
     </div>
   )

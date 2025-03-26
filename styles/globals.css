@@ -89,6 +89,12 @@
     --color-btn3:#80E9CB;
     --color-icon3:#412820;
 
+    
+    /*theme4*/
+
+    --color-btn4:#781BE1;
+
+
 
 }
 
@@ -522,34 +528,58 @@ backdrop-filter: blur(15px);
 }
 
 
-
-
-
-
-
-
-
-
 /*theme3 */
 
 
 
-  @media (max-height: 750px) {
-    .topcustom2{
-      top: 10px;
-    }
-    .hcustom{
-      max-height: 16rem;
-      height: 16rem;
-    
-    }
-    }
+@media (max-height: 750px) {
+  .topcustom2{
+    top: 10px;
+  }
+  .hcustom{
+    max-height: 16rem;
+    height: 16rem;
+  
+  }
+  }
 
 
-    .offcard2{
+  .offcard2{
 
-      box-shadow: 2.37px 4.74px 7.11px 0px rgba(54, 184, 148, 0.32);
+    box-shadow: 2.37px 4.74px 7.11px 0px rgba(54, 184, 148, 0.32);
 
-    
-    }
-    
+  
+  }
+  
+
+
+
+
+
+
+
+
+/*theme4 */
+
+
+.categoryitembg4{
+  background: linear-gradient(180deg, #FFDEEB 0%, #D76492 100%);
+}
+
+
+
+
+.offcard3{
+
+
+  box-shadow: 2.37px 4.74px 7.11px 0px #781BE12E;
+
+  
+}
+
+
+
+
+
+
+
